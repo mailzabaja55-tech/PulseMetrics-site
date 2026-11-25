@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PulseMetrics v3.1.0 — Interactive Live Demo (เหมือนแอป Desktop 100%)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./app.css">
+</head>
+<body>
+<div class="login-gate" id="loginGate" style="display:none">
+  <div class="login-card">
+    <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+      <div class="logo" id="lgLogo">PM</div>
+      <div><b id="lgName" style="font-size:18px;display:block">PulseMetrics</b><small id="lgTag" class="dim">MKT &amp; Lead Intelligence</small></div>
+    </div>
+    <p class="dim" style="margin:0 0 14px;font-size:13px">กรุณาเข้าสู่ระบบ</p>
+    <div style="display:grid;gap:10px">
+      <label style="font-size:12.5px;font-weight:700">อีเมลผู้ใช้<input class="inp" id="lgEmail" type="email" value="admin@pulsemetrics.local"></label>
+      <label style="font-size:12.5px;font-weight:700">รหัสผ่าน<input class="inp" id="lgPass" type="password" value="admin123" onkeydown="if(event.key==='Enter')submitGateLogin()"></label>
+      <div id="lgErr" style="color:var(--bad);font-size:12.5px;display:none"></div>
+      <button class="btn primary" style="justify-content:center" onclick="submitGateLogin()">เข้าสู่ระบบ</button>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <div class="brand">
+      <div class="logo" id="brandLogo">PM</div>
+      <div>
+        <b id="brandName">PulseMetrics</b>
+        <small id="brandTag">MKT &amp; Lead Intelligence</small>
+      </div>
+    </div>
+    <div class="ws-box">
+      <label class="ws-lbl">บริษัท / Workspace</label>
+      <select id="wsSel" onchange="switchWorkspace(this.value)"></select>
+    </div>
+    <nav class="nav" id="mainNav">
+      <div class="nsec">ภาพรวม &amp; ลูกค้า</div>
+      <a class="on" data-tab="dashboard" data-perm="dashboard" onclick="goTab('dashboard')">📊 <span>แดชบอร์ดหลัก</span></a>
+      <a data-tab="leads" data-perm="leads" onclick="goTab('leads')">💬 <span>แชท &amp; ติดต่องาน</span><span class="badge" id="bdLeads"></span></a>
+      <a data-tab="comments" data-perm="comments" onclick="goTab('comments')">🗨️ <span>คอมเมนต์ลูกค้า</span><span class="badge" id="bdCmts"></span></a>
+      <a data-tab="feedback" data-perm="feedback" onclick="goTab('feedback')">💌 <span>ฟีดแบค &amp; ข้อเสนอแนะ</span><span class="badge" id="bdFb" style="background:var(--bad)"></span></a>
+      <div class="nsec">วิเคราะห์ 4 แพลตฟอร์ม</div>
+      <a data-tab="website" data-perm="website" onclick="goTab('website')">🌐 <span>สถิติ &amp; เว็บไซต์ (GA4/GSC)</span></a>
+      <a data-tab="posts" data-perm="posts" onclick="goTab('posts')">🎯 <span>วิเคราะห์โพสต์ &amp; ยอดทัก</span></a>
+      <a data-tab="roi" data-perm="roi" onclick="goTab('roi')">💰 <span>งบแอด &amp; ROAS / CPL</span></a>
+      <a data-tab="competitors" data-perm="strategy" onclick="goTab('competitors')">🏆 <span>ส่องคู่แข่ง &amp; Outlier</span></a>
+      <a data-tab="strategy" data-perm="strategy" onclick="goTab('strategy')">🧭 <span>การตลาด &amp; กลยุทธ์</span></a>
+      <div class="nsec">เป้าหมาย &amp; แผนงาน</div>
+      <a data-tab="goals" data-perm="goals" onclick="goTab('goals')">🏆 <span>เป้าหมายบริษัท</span></a>
+      <a data-tab="calendar" data-perm="calendar" onclick="goTab('calendar')">📅 <span>ปฏิทินคอนเทนต์</span></a>
+      <div class="nsec">ระบบ &amp; NAS</div>
+      <a data-tab="settings" data-perm="settings" onclick="goTab('settings')">⚙️ <span>ตั้งค่า, API &amp; NAS</span></a>
+    </nav>
+    <div class="side-foot">
+      <a class="site-link" href="../">← กลับหน้าเว็บขายขาด PulseMetrics</a>
+      <button class="btn sm ghost" style="width:100%;justify-content:center;font-size:12px" onclick="resetPulseDemo()">🔄 รีเซ็ตข้อมูลเดโม</button>
+      <div class="user-card" onclick="openLoginModal()">
+        <div class="u-av" id="uAv">EX</div>
+        <div class="u-inf"><b id="uName">กำลังโหลด…</b><small id="uRole">Executive</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <div class="tb-left">
+        <button class="icon-btn mob-menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <div class="date-bar">
+          <div class="seg" id="presetBar">
+            <button data-p="day" onclick="setPreset('day')">รายวัน</button>
+            <button data-p="week" onclick="setPreset('week')">รายสัปดาห์</button>
+            <button data-p="month" class="on" onclick="setPreset('month')">รายเดือน</button>
+            <button data-p="year" onclick="setPreset('year')">รายปี</button>
+            <button data-p="custom" onclick="setPreset('custom')">กำหนดวันเอง</button>
+          </div>
+          <div class="cust-dates" id="custDates" style="display:none">
+            <input type="date" id="dtStart"> <span>–</span> <input type="date" id="dtEnd">
+            <button class="btn sm" onclick="applyCustomDate()">ดูช่วงนี้</button>
+          </div>
+          <select id="cmpSel" class="cmp-sel" onchange="setCompare(this.value)" title="โหมดเปรียบเทียบช่วงเวลา">
+            <option value="auto">เทียบอัตโนมัติ</option>
+            <option value="wow">WoW (เทียบสัปดาห์ก่อน)</option>
+            <option value="mom">MoM (เทียบเดือนก่อน)</option>
+            <option value="yoy">YoY (เทียบปีก่อน)</option>
+          </select>
+        </div>
+      </div>
+      <div class="tb-right">
+        <button class="btn sm ghost" onclick="openCmdPalette()" title="ค้นหาด่วนทั่วแอป (Ctrl+K)">🔍 ค้นหา <kbd style="font-size:10.5px;opacity:.7;margin-left:2px">Ctrl+K</kbd></button>
+        <span class="demo-pill" id="demoBadge">LIVE WEB DEMO</span>
+        <button class="btn sm ghost" onclick="openExecReport()" title="เปิดรายงานสรุปผู้บริหารพร้อมพิมพ์ PDF">📄 Executive PDF</button>
+        <button class="btn sm ghost" data-perm-btn="exports" onclick="exportExcel()" title="ดาวน์โหลดไฟล์ CSV/Excel">📥 Export</button>
+        <button class="btn sm primary" data-perm-btn="exports" id="gsBtn" onclick="syncSheets()">📊 Google Sheets</button>
+        <button class="icon-btn" onclick="openIdeaPad()" title="สมุดจดไอเดียแคมเปญด่วน (Alt+N)">📝</button>
+        <button class="icon-btn" id="focusBtn" onclick="toggleFocusMode()" title="โหมดโฟกัสซ่อนป้ายแจ้งเตือน (Alt+F)">🔕</button>
+        <button class="icon-btn" onclick="openShortcutsModal()" title="คีย์ลัดทั้งหมด (?)">?</button>
+        <button class="icon-btn" onclick="toggleTheme()" title="สลับโหมดสว่าง / มืด">🌓</button>
+      </div>
+    </header>
+
+    <main class="content" id="appView">
+      <div class="empty">กำลังโหลด PulseMetrics Live Demo…</div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal-card" id="modalCard"></div>
+</div>
+<div class="modal-bg" id="dlgBg" style="z-index:85" onclick="if(event.target===this)closeDialog(null)">
+  <div class="modal-card" id="dlgCard" style="width:min(460px,94vw)"></div>
+</div>
+<div class="modal-bg" id="cmdBg" style="z-index:80;align-items:start;padding-top:9vh" onclick="if(event.target===this)closeCmdPalette()">
+  <div class="modal-card" style="width:min(640px,95vw);padding:14px 16px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+      <span style="font-size:16px">🔍</span>
+      <input class="inp" id="cmdInp" placeholder="พิมพ์ค้นหาลูกค้า, โพสต์, คีย์เวิร์ด, แคมเปญ หรือพิมพ์ชื่อเมนู…" oninput="runCmdSearch(this.value)" onkeydown="if(event.key==='Escape')closeCmdPalette()">
+      <button class="btn sm ghost" onclick="closeCmdPalette()">ESC</button>
+    </div>
+    <div id="cmdRes" style="max-height:56vh;overflow:auto"></div>
+  </div>
+</div>
+<button class="fb-fab" onclick="openFeedbackModal()" title="ส่งฟีดแบคหรือแจ้งจุดปรับปรุง">💌 ฟีดแบค</button>
+<div class="toast" id="toastBox"></div>
+<script src="../site-config.js"></script>
+<script src="./demo-engine.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
