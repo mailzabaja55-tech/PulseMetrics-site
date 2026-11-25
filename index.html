@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PulseMetrics — ระบบแดชบอร์ดการตลาดและวัดยอดลูกค้าทักสำหรับองค์กร (ลิขสิทธิ์ขายขาด)</title>
+<meta name="description" content="PulseMetrics แพลตฟอร์ม B2B Marketing & Lead Intelligence ลิขสิทธิ์ขายขาด รวม GA4, Google Search Console, Facebook Page, YouTube และ LINE OA ติดตั้งได้ทั้ง Windows Desktop และ NAS ทุกรุ่น">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./site-config.js"></script>
+<style>
+:root{--ac:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans Thai","Inter","Segoe UI",sans-serif;color:#0f172a;background:#f8fafc;line-height:1.65}
+a{text-decoration:none}
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:#0f172a;letter-spacing:-.3px}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--ac),#4f46e5);color:#fff;font-size:15px;font-weight:800;display:grid;place-items:center;box-shadow:0 4px 12px rgba(37,99,235,.28)}
+.nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.nav a{color:#334155;font-weight:600;font-size:14px} .nav a:hover{color:var(--ac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;border-radius:11px;border:0;font:700 14.5px inherit;cursor:pointer;transition:.15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--ac);color:#fff;box-shadow:0 4px 14px rgba(37,99,235,.28)}
+.btn-d{background:#0f172a;color:#fff}
+.btn-o{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.32)}
+.btn-l{background:#fff;color:#0f172a;border:1px solid #cbd5e1}
+.btn-f{background:#1877f2;color:#fff} .btn-g{background:#06c755;color:#fff}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+
+.hero{background:radial-gradient(circle at 85% 18%,rgba(59,130,246,.35),transparent 42%),linear-gradient(135deg,#0f172a 0%,#172554 60%,#1e3a8a 100%);color:#fff;border-radius:24px;padding:52px 40px;margin-bottom:34px;box-shadow:0 20px 50px rgba(15,23,42,.18)}
+.pill-hero{display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,.22);border:1px solid rgba(147,197,253,.4);color:#bfdbfe;font-size:12.5px;font-weight:700;padding:5px 13px;border-radius:999px;margin-bottom:14px}
+.hero h1{margin:0 0 12px;font-size:36px;line-height:1.22;letter-spacing:-.5px;max-width:790px}
+.hero p{color:#cbd5e1;font-size:16px;max-width:700px;margin:0 0 24px}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#e2e8f0}
+.hero-badges span{background:rgba(255,255,255,.08);padding:5px 12px;border-radius:999px;font-weight:600}
+@media(max-width:720px){.hero{padding:32px 22px}.hero h1{font-size:26px}}
+
+.mock{background:#0f172a;border-radius:20px;padding:22px;color:#e2e8f0;margin-bottom:36px;border:1px solid #1e293b;box-shadow:0 16px 40px rgba(15,23,42,.14)}
+.mock-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.mock-dots{display:flex;gap:6px} .mock-dots i{width:10px;height:10px;border-radius:50%;display:block;background:#334155}
+.mock-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}
+.mock-k{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:12px 14px}
+.mock-k small{display:block;color:#94a3b8;font-size:11.5px}
+.mock-k b{display:block;font-size:22px;color:#fff;margin:2px 0}
+.mock-k span{font-size:11.5px;color:#4ade80;font-weight:700}
+
+.sec-hd{text-align:center;max-width:680px;margin:40px auto 22px}
+.sec-hd h2{margin:0 0 6px;font-size:26px;font-weight:800;letter-spacing:-.3px}
+.sec-hd p{margin:0;color:#475569;font-size:15px}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-bottom:28px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px;box-shadow:0 2px 12px rgba(15,23,42,.04);display:flex;flex-direction:column}
+.card .ic{width:42px;height:42px;border-radius:12px;background:#eff6ff;color:var(--ac);font-size:20px;display:grid;place-items:center;margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:17.5px;font-weight:800}
+.card p{margin:0;color:#475569;font-size:14px}
+
+.lic-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:26px;box-shadow:0 4px 18px rgba(15,23,42,.05);display:flex;flex-direction:column}
+.lic-card.pop{border:2px solid var(--ac);box-shadow:0 12px 32px rgba(37,99,235,.14);position:relative}
+.lic-tag{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;background:#eff6ff;color:#1d4ed8;width:fit-content;margin-bottom:10px}
+.lic-price{font-size:20px;font-weight:800;color:#0f172a;margin:8px 0 4px}
+.lic-sub{font-size:12.5px;color:#16a34a;font-weight:700;margin-bottom:14px}
+.lic-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;font-size:13.5px;color:#334155;flex:1}
+.lic-list li::before{content:"✓ ";color:#16a34a;font-weight:800}
+
+.nas-band{background:#0f172a;color:#fff;border-radius:20px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:28px 0}
+.nas-band h3{margin:0 0 6px;font-size:20px} .nas-band p{margin:0;color:#cbd5e1;font-size:14px;max-width:640px}
+
+.form-box{background:#fff;border:1px solid #cbd5e1;border-radius:20px;padding:28px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;box-shadow:0 6px 24px rgba(15,23,42,.05)}
+@media(max-width:800px){.form-box{grid-template-columns:1fr}}
+label{display:block;font-size:13.5px;font-weight:700;margin-bottom:11px;color:#334155}
+input,textarea,select{width:100%;font:inherit;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;margin-top:4px;background:#f8fafc}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);background:#fff}
+
+.result-box{display:none;background:#f0fdf4;border:1px solid #86efac;color:#14532d;border-radius:14px;padding:14px 16px;margin-top:12px;font-size:13.5px}
+.foot{border-top:1px solid #e2e8f0;padding:22px 20px;text-align:center;color:#64748b;font-size:13px;background:#fff}
+.float-chat{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:40}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:11px 18px;border-radius:12px;font-size:14px;font-weight:600;display:none;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" id="topBrand" href="#top"><span class="logo">PM</span> PulseMetrics</a>
+  <nav class="nav">
+    <a href="#features">จุดเด่นระบบ</a>
+    <a href="#nas">Desktop &amp; NAS</a>
+    <a href="#license">ลิขสิทธิ์ขายขาด</a>
+    <a href="#contact">ขอใบเสนอราคา</a>
+    <a class="btn btn-d" id="navDemoBtn" style="padding:8px 14px;font-size:13px" href="#contact">นัดเดโมระบบ →</a>
+  </nav>
+</header>
+
+<div class="wrap" id="top">
+  <section class="hero">
+    <div class="pill-hero">⚡ ลิขสิทธิ์ขายขาด (One-Time License) · ไม่มีค่ารายเดือน · รันได้ทั้ง Windows Desktop &amp; NAS องค์กร 100%</div>
+    <h1>รวมข้อมูลการตลาด 4 แพลตฟอร์ม และวัดยอด “ลูกค้าทักรายโพสต์” จบในจอเดียว</h1>
+    <p><b id="heroBrand">PulseMetrics</b> แพลตฟอร์ม MKT &amp; Lead Intelligence สำหรับองค์กร เชื่อมต่อ <b>Google Analytics (GA4), Google Search Console, Facebook Page, YouTube และ LINE OA</b> พร้อมเทียบช่วงเวลา <b>WoW / MoM / YoY</b>, รายงานผู้บริหาร PDF, คำแนะนำต่อยอดรายแพลตฟอร์ม และส่งออก <b>Google Sheets 6 แท็บ</b> อัตโนมัติ</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-p" href="#contact">ขอใบเสนอราคา / นัดเดโม</a>
+      <a class="btn btn-o" id="heroDemoBtn" href="#license">ดูรุ่นลิขสิทธิ์ขายขาด →</a>
+    </div>
+    <div class="hero-badges">
+      <span>✓ ซื้อขาดครั้งเดียว ใช้ได้ตลอดชีพ</span>
+      <span>✓ แอป Windows Desktop + NAS ทุกรุ่น (Docker / SMB)</span>
+      <span>✓ แยกสิทธิ์ ผู้บริหาร / การตลาด / แอดมินแชท (RBAC)</span>
+      <span>✓ ส่งออก Google Sheets, Excel 6 แท็บ &amp; Executive PDF</span>
+    </div>
+  </section>
+
+  <section class="mock">
+    <div class="mock-hd">
+      <div class="mock-dots"><i style="background:#ef4444"></i><i style="background:#f59e0b"></i><i style="background:#22c55e"></i></div>
+      <div style="font-size:12.5px;color:#94a3b8;font-weight:600">ตัวอย่างแดชบอร์ดผู้บริหาร — เปรียบเทียบ MoM / WoW / YoY แบบเรียลไทม์</div>
+    </div>
+    <div class="mock-kpis">
+      <div class="mock-k"><small>ลูกค้าทักเข้ามารวม (Leads)</small><b>342 คน</b><span>▲ +28.4% MoM</span></div>
+      <div class="mock-k"><small>ผู้เข้าชมเว็บไซต์ (GA4 Users)</small><b>24,890</b><span>▲ +19.2% MoM</span></div>
+      <div class="mock-k"><small>เสิร์ชเจอบน Google (GSC)</small><b>198,400</b><span>▲ +24.6% MoM</span></div>
+      <div class="mock-k"><small>ยอดรับชม Facebook + YouTube</small><b>118,500</b><span>▲ +31.0% MoM</span></div>
+      <div class="mock-k"><small>ปิดการขายใน CRM (Won)</small><b style="color:#4ade80">฿945,000</b><span>✓ ผูกโพสต์ต้นทาง 100%</span></div>
+    </div>
+  </section>
+
+  <div class="sec-hd" id="features">
+    <h2>ออกแบบมาเพื่อตอบคำถามผู้บริหารและทีม MKT x Sales โดยเฉพาะ</h2>
+    <p>ไม่ต้องเปิดสลับ 5 หน้าต่างหรือมานั่งทำรายงานมือทุกสัปดาห์ เห็นครบทั้งยอดเข้าเว็บ คีย์เวิร์ด Google และยอดทักจากแต่ละโพสต์</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="ic">📈</div><h3>เทียบช่วงเวลา WoW / MoM / YoY</h3><p>เลือกดูข้อมูลได้อิสระทั้ง รายวัน รายสัปดาห์ รายเดือน รายปี หรือกำหนดช่วงวันเอง พร้อมกราฟซ้อนและ % ขึ้น-ลง เทียบช่วงก่อนหน้าทันที</p></div>
+    <div class="card"><div class="ic">🎯</div><h3>วัดชัด “โพสต์นี้เข้ามาแล้วทักกี่คน”</h3><p>สร้างลิงก์ติดตามโพสต์อัตโนมัติ (/go/ + UTM) ผูกยอดคลิกเข้าเว็บ คอมเมนต์ และแชท LINE / Facebook เข้ากับโพสต์ต้นทาง พร้อมแปลงคอมเมนต์ซื้อเป็น Lead ใน 1 คลิก</p></div>
+    <div class="card"><div class="ic">🌐</div><h3>Live API ครบทั้ง GA4 · GSC · FB · YT</h3><p>เชื่อมต่อ Official APIs ดึงข้อมูลจริงและรับแชทลูกค้าผ่าน LINE / Facebook Webhook เข้าสู่ Lead CRM พร้อมโน้ตติดตามและแจ้งเตือน SLA อัตโนมัติ</p></div>
+    <div class="card"><div class="ic">💡</div><h3>คำแนะนำต่อยอดรายแพลตฟอร์ม</h3><p>ระบบ Platform Growth Advisor (0 โทเคน) วิเคราะห์อัตโนมัติว่าหน้าเว็บ คีย์เวิร์ด โพสต์ หรือคลิปไหนควรปรับและต่อยอดเพื่อเพิ่มยอดทักให้เร็วที่สุด</p></div>
+    <div class="card"><div class="ic">🏆</div><h3>เป้าหมายบริษัท &amp; Executive PDF</h3><p>ตั้งเป้ารายเดือน/ไตรมาสของบริษัท พร้อมคาดการณ์ถึงเป้า และกดออกรายงานสรุปผู้บริหาร A4 พร้อมพิมพ์เป็น PDF ใน 1 คลิก</p></div>
+    <div class="card"><div class="ic">📊</div><h3>ส่งออก Google Sheets 6 แท็บ + Backup NAS</h3><p>ซิงก์ตัวเลขแดชบอร์ดเข้า Google Sheets KPI อัตโนมัติรายชั่วโมง/รายวัน ดาวน์โหลด Excel สำรอง และ Backup/Restore ฐานข้อมูล SQLite ได้ใน 1 คลิก</p></div>
+  </div>
+
+  <section class="nas-band" id="nas">
+    <div>
+      <h3>🖥️ ใช้งานได้ทั้ง Windows Desktop App และ NAS องค์กรทุกรุ่น — ข้อมูลปลอดภัย 100%</h3>
+      <p>ติดตั้งเป็นแอป Desktop บน Windows (เปิดดับเบิลคลิกจากหน้าจอไม่มีจอดำ Console) หรือรันบน NAS ที่มี Docker (Synology, QNAP, TrueNAS, UGREEN, Asustor) และ NAS แบบแชร์โฟลเดอร์ (SMB) ทีมงานเปิดใช้งานพร้อมกันได้ทั้งคอมและมือถือในออฟฟิศ โดยข้อมูลลูกค้าอยู่กับบริษัท 100%</p>
+    </div>
+    <a class="btn btn-p" href="#contact" onclick="pickEdition('สอบถามการติดตั้งบน Windows Desktop / NAS องค์กร')">ปรึกษาการติดตั้ง</a>
+  </section>
+
+  <div class="sec-hd" id="license">
+    <h2>รูปแบบลิขสิทธิ์ขายขาด (One-Time License)</h2>
+    <p>ชำระครั้งเดียวจบ ไม่มีค่ารายเดือนผูกมัด เลือกรุ่นที่เหมาะกับขนาดทีมและจำนวนแบรนด์ของคุณ</p>
+  </div>
+  <div class="grid3">
+    <div class="lic-card">
+      <span class="lic-tag">STANDARD LICENSE</span>
+      <h3>สำหรับ 1 บริษัท / 1 แบรนด์</h3>
+      <div class="lic-price">ซื้อขาดครั้งเดียว · สอบถามราคา</div>
+      <div class="lic-sub">ไม่มีค่ารายเดือน · ติดตั้งให้พร้อมใช้งาน</div>
+      <ul class="lic-list">
+        <li>ครบ 4 แพลตฟอร์ม (GA4 · Search Console · Facebook · YouTube)</li>
+        <li>เลือกช่วงเวลาเอง + เทียบ WoW / MoM / YoY</li>
+        <li>ระบบวัดยอดทักรายโพสต์ + Lead CRM Pro + คอมเมนต์</li>
+        <li>ส่งออก Google Sheets 6 แท็บ + Excel + Executive PDF</li>
+        <li>ติดตั้งได้ทั้ง Windows Desktop และ NAS บริษัท 1 จุด</li>
+      </ul>
+      <button class="btn btn-l" style="width:100%" onclick="pickEdition('Standard License (ซื้อขาด 1 บริษัท)')">ขอใบเสนอราคา Standard</button>
+    </div>
+
+    <div class="lic-card pop">
+      <span class="lic-tag" style="background:var(--ac);color:#fff">BUSINESS PRO · แนะนำ</span>
+      <h3>สำหรับองค์กร / ทีม MKT x Sales</h3>
+      <div class="lic-price">ซื้อขาดครั้งเดียว · ขอใบเสนอราคาตามขนาดทีม</div>
+      <div class="lic-sub">รองรับหลายแบรนด์ + แยกสิทธิ์ทีมงานครบ</div>
+      <ul class="lic-list">
+        <li>ทุกอย่างใน Standard + รองรับหลาย Workspace / แบรนด์</li>
+        <li>แยกสิทธิ์ Executive / Marketing / Chat Admin + Login Gate</li>
+        <li>Webhook รับแชท LINE OA &amp; Facebook เข้า CRM อัตโนมัติ</li>
+        <li>Auto-Sync Google Sheets + Backup ฐานข้อมูล NAS อัตโนมัติ</li>
+        <li>ติดสคริปต์วัดปุ่มทักบนเว็บไซต์จริง + เทรนนิ่งทีมงาน</li>
+      </ul>
+      <button class="btn btn-p" style="width:100%" onclick="pickEdition('Business Pro License (ซื้อขาด องค์กร / หลายแบรนด์)')">ขอใบเสนอราคา Business Pro</button>
+    </div>
+
+    <div class="lic-card">
+      <span class="lic-tag">AGENCY / WHITE-LABEL</span>
+      <h3>สำหรับเอเจนซี่ / ขายต่อหลายลูกค้า</h3>
+      <div class="lic-price">ซื้อขาดครั้งเดียว · ปรับแต่งตามองค์กร</div>
+      <div class="lic-sub">ปรับแบรนด์ โลโก้ สี และฟีเจอร์เพิ่มเติมได้</div>
+      <ul class="lic-list">
+        <li>ไม่จำกัดจำนวน Workspace บริษัทลูกค้า</li>
+        <li>ปรับชื่อแบรนด์ โลโก้ สี และรายงาน PDF เป็นแบรนด์ของคุณ</li>
+        <li>เชื่อมต่อ API พิเศษหรือชีต KPI เฉพาะของแต่ละลูกค้า</li>
+        <li>รองรับ Deploy ทั้งบน Windows Desktop, NAS และ Cloud</li>
+        <li>ซัพพอร์ตและอัปเดตเวอร์ชันตามข้อตกลง</li>
+      </ul>
+      <button class="btn btn-l" style="width:100%" onclick="pickEdition('Agency / White-Label License (ซื้อขาด)')">ติดต่อคุยสเปก Agency</button>
+    </div>
+  </div>
+
+  <div class="sec-hd" id="contact">
+    <h2>ขอใบเสนอราคา / นัดเดโมระบบ</h2>
+    <p>กรอกรายละเอียดด้านล่างเพื่อรับใบเสนอราคาลิขสิทธิ์ขายขาด หรือทักแชทพูดคุยกับทีมพัฒนาได้โดยตรง</p>
+  </div>
+  <div class="form-box">
+    <div>
+      <label>ชื่อผู้ติดต่อ / บริษัท *<input id="cName" placeholder="เช่น คุณต้น (ฝ่ายการตลาด)"></label>
+      <label>เบอร์โทร / LINE ID / อีเมล *<input id="cContact" placeholder="เช่น 081-xxx-xxxx หรือ LINE ID"></label>
+      <label>รุ่นลิขสิทธิ์ที่สนใจ
+        <select id="cEdition">
+          <option value="Standard License (ซื้อขาด 1 บริษัท)">Standard License (ซื้อขาด 1 บริษัท)</option>
+          <option value="Business Pro License (ซื้อขาด องค์กร / หลายแบรนด์)" selected>Business Pro License (ซื้อขาด องค์กร / หลายแบรนด์)</option>
+          <option value="Agency / White-Label License (ซื้อขาด)">Agency / White-Label License (ซื้อขาด)</option>
+          <option value="สอบถามการติดตั้งบน Windows Desktop / NAS องค์กร">สอบถามการติดตั้งบน Windows Desktop / NAS องค์กร</option>
+        </select>
+      </label>
+      <label>รายละเอียดเพิ่มเติม (เช่น จำนวนแบรนด์ / รุ่น NAS / ช่องทางที่ใช้งาน)<textarea id="cMsg" rows="3" placeholder="แจ้งแพลตฟอร์มที่ต้องการเชื่อมหรือช่วงเวลาที่สะดวกนัดเดโมได้เลยครับ"></textarea></label>
+      <button class="btn btn-p" id="cBtn" style="width:100%" onclick="submitLead()">ส่งคำขอใบเสนอราคา / นัดเดโม</button>
+      <div class="result-box" id="resBox"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:18px">
+        <h3 style="margin:0 0 8px;font-size:16.5px">ช่องทางติดต่อทีมพัฒนา</h3>
+        <div style="font-size:13.5px;color:#334155;display:grid;gap:6px">
+          <div><b>LINE OA:</b> <span id="ctLine">@pulsemetrics</span></div>
+          <div><b>Facebook Page:</b> <span id="ctFb">PulseMetrics Official</span></div>
+          <div><b>อีเมล:</b> <span id="ctEmail">contact@pulsemetrics.th</span></div>
+          <div><b>โทรศัพท์:</b> <span id="ctPhone">02-000-0000</span></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+          <a class="btn btn-f" id="btnFb" style="flex:1;padding:9px 12px;font-size:13px" href="https://www.facebook.com/" target="_blank">💬 ทัก Facebook</a>
+          <a class="btn btn-g" id="btnLine" style="flex:1;padding:9px 12px;font-size:13px" href="https://line.me/" target="_blank">💬 ทัก LINE OA</a>
+        </div>
+      </div>
+
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:16px;padding:16px">
+        <b style="font-size:13.5px;color:#1e3a8a;display:block;margin-bottom:4px">🔒 ข้อมูลบริษัทคุณอยู่กับคุณ 100%</b>
+        <div style="font-size:12.5px;color:#1e40af">ไม่มีค่ารายเดือนแอบแฝง ไม่เก็บข้อมูลลูกค้าบนคลาวด์บุคคลที่สาม ติดตั้งครั้งเดียวพร้อมสอนการใช้งานครบทีม</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="foot" id="footTxt">
+  <b>PulseMetrics</b> — Business Marketing &amp; Lead Intelligence Platform (One-Time License · Desktop &amp; Universal NAS Ready)
+</footer>
+
+<div class="float-chat">
+  <a class="btn btn-f" id="flFb" style="padding:9px 14px;font-size:13px" href="https://www.facebook.com/" target="_blank">💬 ทัก Facebook</a>
+  <a class="btn btn-g" id="flLine" style="padding:9px 14px;font-size:13px" href="https://line.me/" target="_blank">💬 ทัก LINE OA</a>
+</div>
+<div class="toast" id="tst"></div>
+
+<script>
+const CFG = Object.assign({
+  brandName: 'PulseMetrics', brandLogo: 'PM', accentColor: '#2563eb',
+  lineId: '@pulsemetrics', lineUrl: 'https://line.me/', fbName: 'PulseMetrics Official',
+  fbUrl: 'https://www.facebook.com/', email: 'contact@pulsemetrics.th', phone: '02-000-0000',
+  apiBase: '', workspaceId: 1
+}, window.PM_SITE_CONFIG || {});
+
+const qs = new URLSearchParams(location.search);
+const utm = {
+  utm_source: qs.get('utm_source') || '',
+  utm_medium: qs.get('utm_medium') || '',
+  utm_campaign: qs.get('utm_campaign') || '',
+};
+
+(function applyConfig() {
+  if (CFG.accentColor) document.documentElement.style.setProperty('--ac', CFG.accentColor);
+  document.title = CFG.brandName + ' — ระบบแดชบอร์ดการตลาดและวัดยอดลูกค้าทักสำหรับองค์กร (ลิขสิทธิ์ขายขาด)';
+  document.getElementById('topBrand').innerHTML = `<span class="logo">${CFG.brandLogo}</span> ${CFG.brandName}`;
+  document.getElementById('heroBrand').textContent = CFG.brandName;
+  document.getElementById('ctLine').textContent = CFG.lineId;
+  document.getElementById('ctFb').textContent = CFG.fbName;
+  document.getElementById('ctEmail').textContent = CFG.email;
+  document.getElementById('ctPhone').textContent = CFG.phone;
+  document.getElementById('btnLine').href = CFG.lineUrl;
+  document.getElementById('flLine').href = CFG.lineUrl;
+  document.getElementById('btnFb').href = CFG.fbUrl;
+  document.getElementById('flFb').href = CFG.fbUrl;
+  document.getElementById('footTxt').innerHTML = `<b>${CFG.brandName}</b> — ${CFG.brandTagline || 'Business Marketing & Lead Intelligence Platform'} (One-Time License · Desktop &amp; Universal NAS Ready)`;
+
+  if (CFG.apiBase) {
+    const base = CFG.apiBase.replace(/\/+$/, '');
+    document.getElementById('navDemoBtn').href = base + '/';
+    document.getElementById('navDemoBtn').textContent = 'เปิดแดชบอร์ด Demo →';
+    document.getElementById('heroDemoBtn').href = base + '/';
+    document.getElementById('heroDemoBtn').textContent = 'ทดลองเล่นแดชบอร์ดจริง (Live Demo) →';
+    fetch(base + '/api/track', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+      body: JSON.stringify({
+        workspace_id: CFG.workspaceId || 1, event_type: 'pageview', path: location.pathname,
+        title: document.title, utm_source: utm.utm_source, utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign, tracking_code: utm.utm_campaign, referrer: document.referrer || ''
+      })
+    }).catch(() => {});
+  }
+})();
+
+function showT(m) {
+  const t = document.getElementById('tst');
+  t.textContent = m; t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3600);
+}
+
+function pickEdition(ed) {
+  const sel = document.getElementById('cEdition');
+  for (const o of sel.options) { if (o.value === ed) { sel.value = ed; break; } }
+  document.getElementById('cMsg').value = 'สนใจ ' + ed + ' ขอใบเสนอราคาและรายละเอียดการติดตั้งครับ';
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
+async function submitLead() {
+  const name = document.getElementById('cName').value.trim();
+  const contact = document.getElementById('cContact').value.trim();
+  const ed = document.getElementById('cEdition').value;
+  const msg = document.getElementById('cMsg').value.trim();
+  if (!name || !contact) { showT('กรุณากรอกชื่อและช่องทางติดต่อก่อนครับ'); return; }
+
+  const summary = `ขอใบเสนอราคา ${CFG.brandName}\nผู้ติดต่อ: ${name}\nช่องทางติดต่อ: ${contact}\nรุ่นที่สนใจ: ${ed}\nรายละเอียด: ${msg || '-'}${utm.utm_campaign ? '\nรหัสอ้างอิง: ' + utm.utm_campaign : ''}`;
+  const b = document.getElementById('cBtn');
+  b.disabled = true; b.textContent = 'กำลังส่งข้อมูล…';
+
+  let sentToApi = false;
+  if (CFG.apiBase) {
+    try {
+      const r = await fetch(CFG.apiBase.replace(/\/+$/, '') + '/api/track', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          workspace_id: CFG.workspaceId || 1, event_type: 'form_submit', path: '/contact',
+          utm_source: utm.utm_source, utm_medium: utm.utm_medium, utm_campaign: utm.utm_campaign,
+          tracking_code: utm.utm_campaign,
+          meta: { name, contact, message: `[${ed}] ${msg || 'ขอใบเสนอราคาลิขสิทธิ์ขายขาด'}` }
+        })
+      }).then(x => x.json());
+      sentToApi = !!(r && r.ok);
+    } catch (e) {}
+  }
+
+  b.disabled = false; b.textContent = 'ส่งคำขอใบเสนอราคา / นัดเดโม';
+  const box = document.getElementById('resBox');
+  const mailHref = `mailto:${encodeURIComponent(CFG.email)}?subject=${encodeURIComponent('ขอใบเสนอราคา ' + CFG.brandName + ' — ' + name)}&body=${encodeURIComponent(summary)}`;
+  box.style.display = 'block';
+  box.innerHTML = sentToApi
+    ? `<b>✓ ส่งคำขอใบเสนอราคาเข้าสู่ระบบ ${CFG.brandName} CRM เรียบร้อยแล้ว!</b><div style="margin-top:6px">ทีมงานจะติดต่อกลับทาง <b>${contact}</b> โดยเร็วที่สุด หรือทักด่วนทาง LINE ได้ทันที</div>`
+    : `<b>✓ เตรียมข้อความขอใบเสนอราคาเรียบร้อยแล้ว!</b>
+       <div style="margin:6px 0 10px">กดปุ่มด้านล่างเพื่อส่งให้ทีมงานทางอีเมล หรือคัดลอกข้อความส่งเข้า LINE OA (${CFG.lineId}) ได้เลยครับ</div>
+       <div style="display:flex;gap:8px;flex-wrap:wrap">
+         <a class="btn btn-p" style="padding:8px 14px;font-size:13px" href="${mailHref}">✉️ ส่งทางอีเมลทันที</a>
+         <button class="btn btn-l" style="padding:8px 14px;font-size:13px" onclick="navigator.clipboard.writeText(${JSON.stringify(summary)});showT('คัดลอกข้อความแล้ว นำไปวางใน LINE ได้เลย ✓')">📋 คัดลอกข้อความ</button>
+         <a class="btn btn-g" style="padding:8px 14px;font-size:13px" href="${CFG.lineUrl}" target="_blank">💬 เปิด LINE OA</a>
+       </div>`;
+  showT(sentToApi ? 'ส่งคำขอใบเสนอราคาเข้า CRM แล้ว ✓' : 'สร้างสรุปคำขอใบเสนอราคาแล้ว ✓');
+  if (sentToApi) {
+    document.getElementById('cName').value = '';
+    document.getElementById('cContact').value = '';
+    document.getElementById('cMsg').value = '';
+  }
+}
+</script>
+</body>
+</html>

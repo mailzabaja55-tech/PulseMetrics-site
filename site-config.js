@@ -1,0 +1,23 @@
+/* PulseMetrics — ตั้งค่าเว็บไซต์ทางการสำหรับ GitHub Pages / Netlify
+ * แก้ไขข้อมูลติดต่อจริงของคุณในไฟล์นี้ได้เลย (ไม่ต้องแก้โค้ด HTML)
+ */
+window.PM_SITE_CONFIG = {
+  brandName: "PulseMetrics",
+  brandLogo: "PM",
+  brandTagline: "Business Marketing & Lead Intelligence Platform",
+  accentColor: "#2563eb",
+
+  // ช่องทางติดต่อจริงของคุณ (เปลี่ยนเป็นของบริษัทคุณก่อนเผยแพร่)
+  lineId: "@pulsemetrics",
+  lineUrl: "https://line.me/R/ti/p/@pulsemetrics",
+  fbName: "PulseMetrics Official",
+  fbUrl: "https://www.facebook.com/",
+  email: "contact@pulsemetrics.th",
+  phone: "02-000-0000",
+
+  // (ไม่บังคับ) หากคุณเปิดเซิร์ฟเวอร์ PulseMetrics ออนไลน์ (เช่น Render / Railway / NAS + Cloudflare Tunnel)
+  // ให้ใส่ URL เต็ม เช่น "https://demo.yourdomain.com" เพื่อเปิดปุ่ม Live Demo และยิงฟอร์มเข้า CRM อัตโนมัติ!
+  // หากเว้นว่าง "" เว็บจะทำงานแบบ Static 100% บน GitHub Pages (ส่งคำขอผ่าน LINE / อีเมล / คัดลอกรายละเอียดทันที)
+  apiBase: "",
+  workspaceId: 1,
+};
