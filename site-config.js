@@ -16,8 +16,12 @@ window.PM_SITE_CONFIG = {
   phone: "02-000-0000",
 
   // (ไม่บังคับ) หากคุณเปิดเซิร์ฟเวอร์ PulseMetrics ออนไลน์ (เช่น Render / Railway / NAS + Cloudflare Tunnel)
-  // ให้ใส่ URL เต็ม เช่น "https://demo.yourdomain.com" เพื่อเปิดปุ่ม Live Demo และยิงฟอร์มเข้า CRM อัตโนมัติ!
-  // หากเว้นว่าง "" เว็บจะทำงานแบบ Static 100% บน GitHub Pages (ส่งคำขอผ่าน LINE / อีเมล / คัดลอกรายละเอียดทันที)
+  // ให้ใส่ URL เต็ม เช่น "https://demo.yourdomain.com" เพื่อเปิดปุ่ม Live Demo และยิงฟอร์ม+ฟีดแบคเข้าแอปอัตโนมัติ!
   apiBase: "",
   workspaceId: 1,
+
+  // กล่องรับฟีดแบคบน GitHub Pages (แอป Desktop ดึงจาก Repo นี้เข้ากล่องฟีดแบคได้ใน 1 คลิกโดยไม่ต้องใส่ Token!)
+  feedbackGithubRepo: "mailzabaja55-tech/PulseMetrics-site",
+  // (ไม่บังคับ) Webhook/Form Endpoint สำรอง เช่น Formspree / Netlify
+  feedbackEndpoint: "",
 };

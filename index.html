@@ -239,8 +239,24 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
 </footer>
 
 <div class="float-chat">
+  <button class="btn btn-p" style="padding:9px 14px;font-size:13px" onclick="openWebFb()">💌 ส่งฟีดแบค</button>
   <a class="btn btn-f" id="flFb" style="padding:9px 14px;font-size:13px" href="https://www.facebook.com/" target="_blank">💬 ทัก Facebook</a>
   <a class="btn btn-g" id="flLine" style="padding:9px 14px;font-size:13px" href="https://line.me/" target="_blank">💬 ทัก LINE OA</a>
+</div>
+<div id="fbModal" style="position:fixed;inset:0;background:rgba(15,23,42,.58);display:none;place-items:center;padding:18px;z-index:60" onclick="if(event.target===this)this.style.display='none'">
+  <div style="width:min(490px,95vw);background:#fff;border-radius:18px;padding:22px 24px;box-shadow:0 24px 60px rgba(0,0,0,.3)">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <b style="font-size:17px">💌 ส่งฟีดแบค / แนะนำจุดปรับปรุง</b>
+      <button class="btn btn-l" style="padding:5px 11px;font-size:12px" onclick="document.getElementById('fbModal').style.display='none'">ปิด</button>
+    </div>
+    <p style="margin:0 0 12px;color:#475569;font-size:13px">ลองดูหน้าเว็บแล้วชอบตรงไหน หรืออยากให้ปรับปรุงอะไร พิมพ์ส่งให้ทีมพัฒนาได้เลยครับ!</p>
+    <label>ชื่อเล่น / ชื่อผู้ส่ง (ไม่บังคับ)<input id="wfName" placeholder="เช่น เพื่อน / บีม"></label>
+    <label>หมวดหมู่<select id="wfCat"><option value="ux">🎨 ดีไซน์ / ความน่าใช้</option><option value="feature">✨ ฟีเจอร์ที่อยากให้เพิ่ม</option><option value="bug">🐞 แจ้งบั๊ก</option><option value="pricing">💰 ราคา / ลิขสิทธิ์</option></select></label>
+    <label>คะแนนความชอบ<select id="wfRat"><option value="5">⭐⭐⭐⭐⭐ (5/5 ดีมาก)</option><option value="4">⭐⭐⭐⭐ (4/5 ดี)</option><option value="3">⭐⭐⭐ (3/5 พอใช้)</option><option value="2">⭐⭐ (2/5 ควรปรับ)</option><option value="1">⭐ (1/5 ต้องแก้ด่วน)</option></select></label>
+    <label>ข้อความฟีดแบค *<textarea id="wfMsg" rows="3" placeholder="พิมพ์ข้อเสนอแนะได้เลยครับ…"></textarea></label>
+    <button class="btn btn-p" id="wfBtn" style="width:100%" onclick="sendWebFb()">ส่งฟีดแบค</button>
+    <div class="result-box" id="wfRes"></div>
+  </div>
 </div>
 <div class="toast" id="tst"></div>
 
@@ -350,6 +366,58 @@ async function submitLead() {
     document.getElementById('cContact').value = '';
     document.getElementById('cMsg').value = '';
   }
+}
+
+function openWebFb() {
+  document.getElementById('wfRes').style.display = 'none';
+  document.getElementById('fbModal').style.display = 'grid';
+}
+
+async function sendWebFb() {
+  const msg = document.getElementById('wfMsg').value.trim();
+  if (!msg) { showT('กรุณาพิมพ์ข้อความฟีดแบคก่อนส่งครับ'); return; }
+  const name = document.getElementById('wfName').value.trim() || 'เพื่อน (จากหน้าเว็บ)';
+  const cat = document.getElementById('wfCat').value;
+  const rat = Number(document.getElementById('wfRat').value) || 5;
+  const b = document.getElementById('wfBtn');
+  b.disabled = true; b.textContent = 'กำลังส่งฟีดแบค…';
+
+  let sentDirect = false;
+  const targetUrl = CFG.apiBase ? (CFG.apiBase.replace(/\/+$/, '') + '/api/feedback') : (CFG.feedbackEndpoint || '');
+  if (targetUrl) {
+    try {
+      const r = await fetch(targetUrl, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          workspace_id: CFG.workspaceId || 1, source: 'site_web', sender_name: name,
+          category: cat, rating: rat, page_ref: location.href, message: msg
+        })
+      }).then(x => x.json());
+      sentDirect = !!(r && (r.ok || r.id));
+    } catch (e) {}
+  }
+
+  b.disabled = false; b.textContent = 'ส่งฟีดแบค';
+  const box = document.getElementById('wfRes');
+  box.style.display = 'block';
+  if (sentDirect) {
+    document.getElementById('wfMsg').value = '';
+    box.innerHTML = '<b>✓ ส่งฟีดแบคเด้งเข้าแอป PulseMetrics เรียบร้อยแล้ว!</b> ขอบคุณมากครับ';
+    showT('ส่งฟีดแบคเข้าแอปแล้ว ✓');
+    return;
+  }
+
+  const fbText = `[ฟีดแบค ${CFG.brandName}] ${rat}/5 ดาว (${cat})\nผู้ส่ง: ${name}\nหน้า: ${location.href}\nข้อความ: ${msg}`;
+  const ghRepo = CFG.feedbackGithubRepo || 'mailzabaja55-tech/PulseMetrics-site';
+  const ghHref = `https://github.com/${ghRepo}/issues/new?title=${encodeURIComponent('[Feedback] ' + name + ' (' + rat + '/5)')}&body=${encodeURIComponent(fbText)}`;
+  box.innerHTML = `<b>✓ เตรียมฟีดแบคเรียบร้อยแล้ว!</b>
+    <div style="margin:6px 0 10px">กดส่งเข้ากล่องฟีดแบคของแอป (ผ่าน GitHub) หรือคัดลอกส่งทาง LINE ได้ทันทีครับ:</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <a class="btn btn-p" style="padding:8px 13px;font-size:12.5px" href="${ghHref}" target="_blank">🚀 ส่งเข้ากล่องฟีดแบคแอป</a>
+      <button class="btn btn-l" style="padding:8px 13px;font-size:12.5px" onclick="navigator.clipboard.writeText(${JSON.stringify(fbText)});showT('คัดลอกฟีดแบคแล้ว วางส่งให้เพื่อนได้เลย ✓')">📋 คัดลอกข้อความ</button>
+      <a class="btn btn-g" style="padding:8px 13px;font-size:12.5px" href="${CFG.lineUrl}" target="_blank">💬 ส่งทาง LINE</a>
+    </div>`;
+  showT('เตรียมข้อความฟีดแบคแล้ว ✓');
 }
 </script>
 </body>
