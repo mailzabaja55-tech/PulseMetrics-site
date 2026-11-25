@@ -169,3 +169,7 @@ body.focus-mode .badge{display:none!important}
 .safe-bot{position:absolute;bottom:0;left:0;right:0;height:95px;background:rgba(220,38,38,.38);border-top:1px dashed #fca5a5;padding:8px 12px;font-size:11px;color:#fff}
 .safe-center{position:absolute;top:64px;bottom:102px;left:10px;right:60px;border:1.5px dashed #4ade80;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:10px;font-weight:800;font-size:14px}
 .doc-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 10px;border:1px solid var(--bd);border-radius:10px;background:var(--surf2);font-size:12.5px}
+svg.ic-svg{width:1.08em;height:1.08em;vertical-align:-.18em;flex:none;display:inline-block;margin-right:3px}
+.nav a svg.ic-svg{width:17px;height:17px;margin:0;opacity:.88}
+.icon-btn svg.ic-svg,.fb-fab svg.ic-svg{margin:0;width:16px;height:16px}
+.ic-dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;vertical-align:.04em;margin-right:5px}

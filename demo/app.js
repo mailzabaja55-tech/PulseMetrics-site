@@ -569,7 +569,7 @@ async function viewDashboard(host) {
         <div class="card-hd"><b>☀️ เช้านี้ทำ 3 อย่างนี้ก่อน (Morning Brief · 0 โทเคน)</b><button class="btn sm ghost" onclick="openIdeaPad()">📝 จดไอเดีย (Alt+N)</button></div>
         <div class="brief-grid">
           ${brief.map(b => `<div class="brief-item ${E(b.priority)}">
-            <div><b>${b.icon} ${E(b.title)}</b><div class="dim" style="font-size:12px;margin-top:2px">${E(b.detail)}</div></div>
+            <div><b>${ic(b.icon || 'target')} ${E(b.title)}</b><div class="dim" style="font-size:12px;margin-top:2px">${E(b.detail)}</div></div>
             <button class="btn sm ghost" style="white-space:nowrap" onclick="goTab('${E(b.tab)}')">${E(b.btn)}</button>
           </div>`).join('')}
         </div>
@@ -754,7 +754,7 @@ function openWeeklyDigestCard() {
     ctx.fillStyle = 'rgba(255,255,255,0.10)';
     ctx.beginPath(); ctx.roundRect(52, 548, 1096, 86, 16); ctx.fill();
     ctx.fillStyle = '#fde047'; ctx.font = '700 18px "Noto Sans Thai", sans-serif';
-    ctx.fillText('🎯 โพสต์ที่พาลูกค้าทักสูงสุด:', 76, 582);
+    ctx.fillText('TOP POST · โพสต์ที่พาลูกค้าทักสูงสุด:', 76, 582);
     ctx.fillStyle = '#ffffff'; ctx.font = '700 22px "Noto Sans Thai", sans-serif';
     ctx.fillText(`${String(topP.title || '').slice(0, 58)}   (${topP.effective_leads} คนทัก · ฿${NF(topP.revenue_thb)})`, 76, 616);
   }
@@ -800,7 +800,7 @@ async function viewLeads(host) {
 
     <div class="card">
       <div class="filter-bar">
-        <input class="inp" id="leadSearch" placeholder="🔍 ค้นหาชื่อลูกค้า / เบอร์ / ข้อความ / รหัสโพสต์…" value="${E(ST.leadQ)}" onkeydown="if(event.key==='Enter'){ST.leadQ=this.value;renderTab()}">
+        <input class="inp" id="leadSearch" placeholder="ค้นหาชื่อลูกค้า / เบอร์ / ข้อความ / รหัสโพสต์…" value="${E(ST.leadQ)}" onkeydown="if(event.key==='Enter'){ST.leadQ=this.value;renderTab()}">
         <select class="inp" style="flex:0 0 155px" onchange="ST.leadStage=this.value;renderTab()">
           <option value="">ทุกสถานะ</option>
           ${Object.entries(STAGE_LBL).map(([k, v]) => `<option value="${k}" ${ST.leadStage === k ? 'selected' : ''}>${v}</option>`).join('')}
@@ -1014,7 +1014,7 @@ async function openQuickRepliesModal() {
   openModal(`
     <div class="card-hd"><b>⚡ จัดการชุดคำตอบด่วน 1 คลิก</b><button class="btn sm ghost" onclick="closeModal()">ปิด</button></div>
     <div class="fgrid" style="margin-bottom:10px">
-      <label>ชื่อปุ่มสั้น *<input class="inp" id="qrLbl" placeholder="เช่น 💰 ส่งโปรเดือนนี้"></label>
+      <label>ชื่อปุ่มสั้น *<input class="inp" id="qrLbl" placeholder="เช่น  ส่งโปรเดือนนี้"></label>
       <label>หมวด<input class="inp" id="qrCat" value="sales"></label>
       <label style="grid-column:1/-1">ข้อความตอบกลับ *<textarea class="inp" id="qrTxt" rows="2" placeholder="พิมพ์ข้อความสำเร็จรูป…"></textarea></label>
     </div>
@@ -1130,11 +1130,11 @@ function openFeedbackModal() {
     <div class="fgrid">
       <label>ชื่อของคุณ (ไม่บังคับ)<input class="inp" id="fbName" value="${E((ST.me && ST.me.user && ST.me.user.name) || '')}" placeholder="เช่น บีม / แป้ง / เพื่อน"></label>
       <label>หมวดหมู่<select class="inp" id="fbCat">
-        <option value="ux">🎨 ดีไซน์ / ความใช้งานง่าย (UX)</option>
-        <option value="feature">✨ ฟีเจอร์ที่อยากให้เพิ่ม</option>
-        <option value="bug">🐞 แจ้งบั๊ก / จุดผิดพลาด</option>
-        <option value="pricing">💰 ราคา / แพ็กเกจลิขสิทธิ์</option>
-        <option value="general">💬 ข้อเสนอแนะทั่วไป</option>
+        <option value="ux"> ดีไซน์ / ความใช้งานง่าย (UX)</option>
+        <option value="feature"> ฟีเจอร์ที่อยากให้เพิ่ม</option>
+        <option value="bug"> แจ้งบั๊ก / จุดผิดพลาด</option>
+        <option value="pricing"> ราคา / แพ็กเกจลิขสิทธิ์</option>
+        <option value="general"> ข้อเสนอแนะทั่วไป</option>
       </select></label>
       <label style="grid-column:1/-1">ให้คะแนนความชอบ (1–5 ดาว)
         <div class="stars-row" id="fbStars">${[1, 2, 3, 4, 5].map(n => `<button type="button" class="star-btn on" data-v="${n}" onclick="pickFbStar(${n})">★</button>`).join('')}</div>

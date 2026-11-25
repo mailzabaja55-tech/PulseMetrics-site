@@ -74,7 +74,10 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
 .foot{border-top:1px solid #e2e8f0;padding:22px 20px;text-align:center;color:#64748b;font-size:13px;background:#fff}
 .float-chat{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:40}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:11px 18px;border-radius:12px;font-size:14px;font-weight:600;display:none;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+svg.ic-svg{width:1.1em;height:1.1em;vertical-align:-.18em;display:inline-block;flex:none;margin-right:4px}
+.card .ic svg.ic-svg{width:22px;height:22px;margin:0}
 </style>
+<script src="./icons.js"></script>
 </head>
 <body>
 <header class="top">
@@ -90,11 +93,11 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
 
 <div class="wrap" id="top">
   <section class="hero">
-    <div class="pill-hero">⚡ ลิขสิทธิ์ขายขาด (One-Time License) · ไม่มีค่ารายเดือน · รันได้ทั้ง Windows Desktop &amp; NAS องค์กร 100%</div>
+    <div class="pill-hero"><i data-ic="zap"></i> ลิขสิทธิ์ขายขาด (One-Time License) · ไม่มีค่ารายเดือน · รันได้ทั้ง Windows Desktop &amp; NAS องค์กร 100%</div>
     <h1>รวมข้อมูลการตลาด 6 แพลตฟอร์ม และวัดยอด “ลูกค้าทักรายโพสต์” จบในจอเดียว</h1>
     <p><b id="heroBrand">PulseMetrics v3.1</b> แพลตฟอร์ม MKT &amp; Lead Intelligence สำหรับองค์กร เชื่อมต่อ <b>GA4, Google Search Console, Facebook, YouTube, TikTok, Instagram และ LINE OA</b> พร้อมเทียบ <b>WoW / MoM / YoY</b>, วัดความคุ้มค่าแอด <b>ROAS/CPL</b>, CRM Kanban + ใบเสนอราคา PDF, การ์ดสรุป PNG และส่งออก <b>Google Sheets 6 แท็บ</b> อัตโนมัติ</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn btn-p" id="heroDemoBtn" href="./demo/">🚀 ทดลองเล่นแดชบอร์ดจริง (เหมือนแอป Desktop) →</a>
+      <a class="btn btn-p" id="heroDemoBtn" href="./demo/"><i data-ic="trend"></i> ทดลองเล่นแดชบอร์ดจริง (เหมือนแอป Desktop) →</a>
       <a class="btn btn-o" href="#contact">ขอใบเสนอราคา / นัดเดโม</a>
     </div>
     <div class="hero-badges">
@@ -124,17 +127,17 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
     <p>ไม่ต้องเปิดสลับ 5 หน้าต่างหรือมานั่งทำรายงานมือทุกสัปดาห์ เห็นครบทั้งยอดเข้าเว็บ คีย์เวิร์ด Google และยอดทักจากแต่ละโพสต์</p>
   </div>
   <div class="grid3">
-    <div class="card"><div class="ic">📈</div><h3>เทียบช่วงเวลา WoW / MoM / YoY + ROAS</h3><p>เลือกดูข้อมูลได้อิสระทั้ง รายวัน/สัปดาห์/เดือน/ปี พร้อมกราฟ Hover Tooltip และวัดความคุ้มค่าแอด (Ad Spend · CPL · CAC · ROAS) ทุกช่องทาง</p></div>
-    <div class="card"><div class="ic">🎯</div><h3>วัดชัด “โพสต์นี้เข้ามาแล้วทักกี่คน”</h3><p>ครบทั้ง Facebook · YouTube · TikTok · Instagram · Google · LINE OA พร้อม CRM Kanban ลากวาง, แปลงคอมเมนต์เป็น Lead และออกใบเสนอราคา PDF 1 คลิก</p></div>
-    <div class="card"><div class="ic">🔔</div><h3>Live APIs + แจ้งเตือนมือถือเรียลไทม์</h3><p>ดึงข้อมูลจริงจาก GA4/GSC/FB/YT รับแชทเข้า CRM ผ่าน Webhook และเด้งแจ้งเตือน Discord / Telegram / LINE ทันทีเมื่อมีลูกค้าทักใหม่หรือสรุปรายสัปดาห์</p></div>
-    <div class="card"><div class="ic">☀️</div><h3>Morning Brief + Health Score 5 มิติ</h3><p>เปิดแอปตอนเช้าเห็น 3 งานด่วนทันที + คะแนนสุขภาพการตลาด 0–100 และปุ่มสร้างการ์ดสรุปผลงาน PNG ส่งเข้ากรุ๊ป LINE ผู้บริหารใน 1 คลิก</p></div>
-    <div class="card"><div class="ic">🏆</div><h3>ส่องคู่แข่ง Outlier + Packaging Lab</h3><p>เรดาร์จับคอนเทนต์คู่แข่งยอดพุ่ง ≥2.2x, ให้คะแนนชื่อไทย 0–100, แปลงแคปชัน 4 แพลตฟอร์ม, พรีวิว Mobile Safe-Zone และคำตอบด่วน 1 คลิก</p></div>
-    <div class="card"><div class="ic">📊</div><h3>Google Sheets 6 แท็บ + System Doctor NAS</h3><p>ซิงก์ KPI ขึ้น Google Sheets อัตโนมัติ, รายงาน Executive PDF, System Doctor ตรวจซ่อม 7 จุด และ Backup/Restore ฐานข้อมูล SQLite 1 คลิก</p></div>
+    <div class="card"><div class="ic"><i data-ic="trend"></i></div><h3>เทียบช่วงเวลา WoW / MoM / YoY + ROAS</h3><p>เลือกดูข้อมูลได้อิสระทั้ง รายวัน/สัปดาห์/เดือน/ปี พร้อมกราฟ Hover Tooltip และวัดความคุ้มค่าแอด (Ad Spend · CPL · CAC · ROAS) ทุกช่องทาง</p></div>
+    <div class="card"><div class="ic"><i data-ic="target"></i></div><h3>วัดชัด “โพสต์นี้เข้ามาแล้วทักกี่คน”</h3><p>ครบทั้ง Facebook · YouTube · TikTok · Instagram · Google · LINE OA พร้อม CRM Kanban ลากวาง, แปลงคอมเมนต์เป็น Lead และออกใบเสนอราคา PDF 1 คลิก</p></div>
+    <div class="card"><div class="ic"><i data-ic="bell"></i></div><h3>Live APIs + แจ้งเตือนมือถือเรียลไทม์</h3><p>ดึงข้อมูลจริงจาก GA4/GSC/FB/YT รับแชทเข้า CRM ผ่าน Webhook และเด้งแจ้งเตือน Discord / Telegram / LINE ทันทีเมื่อมีลูกค้าทักใหม่หรือสรุปรายสัปดาห์</p></div>
+    <div class="card"><div class="ic"><i data-ic="sun"></i></div><h3>Morning Brief + Health Score 5 มิติ</h3><p>เปิดแอปตอนเช้าเห็น 3 งานด่วนทันที + คะแนนสุขภาพการตลาด 0–100 และปุ่มสร้างการ์ดสรุปผลงาน PNG ส่งเข้ากรุ๊ป LINE ผู้บริหารใน 1 คลิก</p></div>
+    <div class="card"><div class="ic"><i data-ic="trophy"></i></div><h3>ส่องคู่แข่ง Outlier + Packaging Lab</h3><p>เรดาร์จับคอนเทนต์คู่แข่งยอดพุ่ง ≥2.2x, ให้คะแนนชื่อไทย 0–100, แปลงแคปชัน 4 แพลตฟอร์ม, พรีวิว Mobile Safe-Zone และคำตอบด่วน 1 คลิก</p></div>
+    <div class="card"><div class="ic"><i data-ic="chart"></i></div><h3>Google Sheets 6 แท็บ + System Doctor NAS</h3><p>ซิงก์ KPI ขึ้น Google Sheets อัตโนมัติ, รายงาน Executive PDF, System Doctor ตรวจซ่อม 7 จุด และ Backup/Restore ฐานข้อมูล SQLite 1 คลิก</p></div>
   </div>
 
   <section class="nas-band" id="nas">
     <div>
-      <h3>🖥️ ใช้งานได้ทั้ง Windows Desktop App และ NAS องค์กรทุกรุ่น — ข้อมูลปลอดภัย 100%</h3>
+      <h3><i data-ic="server"></i> ใช้งานได้ทั้ง Windows Desktop App และ NAS องค์กรทุกรุ่น — ข้อมูลปลอดภัย 100%</h3>
       <p>ติดตั้งเป็นแอป Desktop บน Windows (เปิดดับเบิลคลิกจากหน้าจอไม่มีจอดำ Console) หรือรันบน NAS ที่มี Docker (Synology, QNAP, TrueNAS, UGREEN, Asustor) และ NAS แบบแชร์โฟลเดอร์ (SMB) ทีมงานเปิดใช้งานพร้อมกันได้ทั้งคอมและมือถือในออฟฟิศ โดยข้อมูลลูกค้าอยู่กับบริษัท 100%</p>
     </div>
     <a class="btn btn-p" href="#contact" onclick="pickEdition('สอบถามการติดตั้งบน Windows Desktop / NAS องค์กร')">ปรึกษาการติดตั้ง</a>
@@ -221,13 +224,13 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
           <div><b>โทรศัพท์:</b> <span id="ctPhone">02-000-0000</span></div>
         </div>
         <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
-          <a class="btn btn-f" id="btnFb" style="flex:1;padding:9px 12px;font-size:13px" href="https://www.facebook.com/" target="_blank">💬 ทัก Facebook</a>
-          <a class="btn btn-g" id="btnLine" style="flex:1;padding:9px 12px;font-size:13px" href="https://line.me/" target="_blank">💬 ทัก LINE OA</a>
+          <a class="btn btn-f" id="btnFb" style="flex:1;padding:9px 12px;font-size:13px" href="https://www.facebook.com/" target="_blank"><i data-ic="chats"></i> ทัก Facebook</a>
+          <a class="btn btn-g" id="btnLine" style="flex:1;padding:9px 12px;font-size:13px" href="https://line.me/" target="_blank"><i data-ic="chats"></i> ทัก LINE OA</a>
         </div>
       </div>
 
       <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:16px;padding:16px">
-        <b style="font-size:13.5px;color:#1e3a8a;display:block;margin-bottom:4px">🔒 ข้อมูลบริษัทคุณอยู่กับคุณ 100%</b>
+        <b style="font-size:13.5px;color:#1e3a8a;display:block;margin-bottom:4px"><i data-ic="lock"></i> ข้อมูลบริษัทคุณอยู่กับคุณ 100%</b>
         <div style="font-size:12.5px;color:#1e40af">ไม่มีค่ารายเดือนแอบแฝง ไม่เก็บข้อมูลลูกค้าบนคลาวด์บุคคลที่สาม ติดตั้งครั้งเดียวพร้อมสอนการใช้งานครบทีม</div>
       </div>
     </div>
@@ -239,20 +242,20 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);back
 </footer>
 
 <div class="float-chat">
-  <button class="btn btn-p" style="padding:9px 14px;font-size:13px" onclick="openWebFb()">💌 ส่งฟีดแบค</button>
-  <a class="btn btn-f" id="flFb" style="padding:9px 14px;font-size:13px" href="https://www.facebook.com/" target="_blank">💬 ทัก Facebook</a>
-  <a class="btn btn-g" id="flLine" style="padding:9px 14px;font-size:13px" href="https://line.me/" target="_blank">💬 ทัก LINE OA</a>
+  <button class="btn btn-p" style="padding:9px 14px;font-size:13px" onclick="openWebFb()"><i data-ic="mail"></i> ส่งฟีดแบค</button>
+  <a class="btn btn-f" id="flFb" style="padding:9px 14px;font-size:13px" href="https://www.facebook.com/" target="_blank"><i data-ic="chats"></i> ทัก Facebook</a>
+  <a class="btn btn-g" id="flLine" style="padding:9px 14px;font-size:13px" href="https://line.me/" target="_blank"><i data-ic="chats"></i> ทัก LINE OA</a>
 </div>
 <div id="fbModal" style="position:fixed;inset:0;background:rgba(15,23,42,.58);display:none;place-items:center;padding:18px;z-index:60" onclick="if(event.target===this)this.style.display='none'">
   <div style="width:min(490px,95vw);background:#fff;border-radius:18px;padding:22px 24px;box-shadow:0 24px 60px rgba(0,0,0,.3)">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <b style="font-size:17px">💌 ส่งฟีดแบค / แนะนำจุดปรับปรุง</b>
+      <b style="font-size:17px"><i data-ic="mail"></i> ส่งฟีดแบค / แนะนำจุดปรับปรุง</b>
       <button class="btn btn-l" style="padding:5px 11px;font-size:12px" onclick="document.getElementById('fbModal').style.display='none'">ปิด</button>
     </div>
     <p style="margin:0 0 12px;color:#475569;font-size:13px">ลองดูหน้าเว็บแล้วชอบตรงไหน หรืออยากให้ปรับปรุงอะไร พิมพ์ส่งให้ทีมพัฒนาได้เลยครับ!</p>
     <label>ชื่อเล่น / ชื่อผู้ส่ง (ไม่บังคับ)<input id="wfName" placeholder="เช่น เพื่อน / บีม"></label>
-    <label>หมวดหมู่<select id="wfCat"><option value="ux">🎨 ดีไซน์ / ความน่าใช้</option><option value="feature">✨ ฟีเจอร์ที่อยากให้เพิ่ม</option><option value="bug">🐞 แจ้งบั๊ก</option><option value="pricing">💰 ราคา / ลิขสิทธิ์</option></select></label>
-    <label>คะแนนความชอบ<select id="wfRat"><option value="5">⭐⭐⭐⭐⭐ (5/5 ดีมาก)</option><option value="4">⭐⭐⭐⭐ (4/5 ดี)</option><option value="3">⭐⭐⭐ (3/5 พอใช้)</option><option value="2">⭐⭐ (2/5 ควรปรับ)</option><option value="1">⭐ (1/5 ต้องแก้ด่วน)</option></select></label>
+    <label>หมวดหมู่<select id="wfCat"><option value="ux"> ดีไซน์ / ความน่าใช้</option><option value="feature"> ฟีเจอร์ที่อยากให้เพิ่ม</option><option value="bug"> แจ้งบั๊ก</option><option value="pricing"> ราคา / ลิขสิทธิ์</option></select></label>
+    <label>คะแนนความชอบ<select id="wfRat"><option value="5"> (5/5 ดีมาก)</option><option value="4"> (4/5 ดี)</option><option value="3"> (3/5 พอใช้)</option><option value="2"> (2/5 ควรปรับ)</option><option value="1"> (1/5 ต้องแก้ด่วน)</option></select></label>
     <label>ข้อความฟีดแบค *<textarea id="wfMsg" rows="3" placeholder="พิมพ์ข้อเสนอแนะได้เลยครับ…"></textarea></label>
     <button class="btn btn-p" id="wfBtn" style="width:100%" onclick="sendWebFb()">ส่งฟีดแบค</button>
     <div class="result-box" id="wfRes"></div>
@@ -356,9 +359,9 @@ async function submitLead() {
     : `<b>✓ เตรียมข้อความขอใบเสนอราคาเรียบร้อยแล้ว!</b>
        <div style="margin:6px 0 10px">กดปุ่มด้านล่างเพื่อส่งให้ทีมงานทางอีเมล หรือคัดลอกข้อความส่งเข้า LINE OA (${CFG.lineId}) ได้เลยครับ</div>
        <div style="display:flex;gap:8px;flex-wrap:wrap">
-         <a class="btn btn-p" style="padding:8px 14px;font-size:13px" href="${mailHref}">✉️ ส่งทางอีเมลทันที</a>
-         <button class="btn btn-l" style="padding:8px 14px;font-size:13px" onclick="navigator.clipboard.writeText(${JSON.stringify(summary)});showT('คัดลอกข้อความแล้ว นำไปวางใน LINE ได้เลย ✓')">📋 คัดลอกข้อความ</button>
-         <a class="btn btn-g" style="padding:8px 14px;font-size:13px" href="${CFG.lineUrl}" target="_blank">💬 เปิด LINE OA</a>
+         <a class="btn btn-p" style="padding:8px 14px;font-size:13px" href="${mailHref}"> ส่งทางอีเมลทันที</a>
+         <button class="btn btn-l" style="padding:8px 14px;font-size:13px" onclick="navigator.clipboard.writeText(${JSON.stringify(summary)});showT('คัดลอกข้อความแล้ว นำไปวางใน LINE ได้เลย ✓')"> คัดลอกข้อความ</button>
+         <a class="btn btn-g" style="padding:8px 14px;font-size:13px" href="${CFG.lineUrl}" target="_blank"> เปิด LINE OA</a>
        </div>`;
   showT(sentToApi ? 'ส่งคำขอใบเสนอราคาเข้า CRM แล้ว ✓' : 'สร้างสรุปคำขอใบเสนอราคาแล้ว ✓');
   if (sentToApi) {
@@ -413,9 +416,9 @@ async function sendWebFb() {
   box.innerHTML = `<b>✓ เตรียมฟีดแบคเรียบร้อยแล้ว!</b>
     <div style="margin:6px 0 10px">กดส่งเข้ากล่องฟีดแบคของแอป (ผ่าน GitHub) หรือคัดลอกส่งทาง LINE ได้ทันทีครับ:</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <a class="btn btn-p" style="padding:8px 13px;font-size:12.5px" href="${ghHref}" target="_blank">🚀 ส่งเข้ากล่องฟีดแบคแอป</a>
-      <button class="btn btn-l" style="padding:8px 13px;font-size:12.5px" onclick="navigator.clipboard.writeText(${JSON.stringify(fbText)});showT('คัดลอกฟีดแบคแล้ว วางส่งให้เพื่อนได้เลย ✓')">📋 คัดลอกข้อความ</button>
-      <a class="btn btn-g" style="padding:8px 13px;font-size:12.5px" href="${CFG.lineUrl}" target="_blank">💬 ส่งทาง LINE</a>
+      <a class="btn btn-p" style="padding:8px 13px;font-size:12.5px" href="${ghHref}" target="_blank"> ส่งเข้ากล่องฟีดแบคแอป</a>
+      <button class="btn btn-l" style="padding:8px 13px;font-size:12.5px" onclick="navigator.clipboard.writeText(${JSON.stringify(fbText)});showT('คัดลอกฟีดแบคแล้ว วางส่งให้เพื่อนได้เลย ✓')"> คัดลอกข้อความ</button>
+      <a class="btn btn-g" style="padding:8px 13px;font-size:12.5px" href="${CFG.lineUrl}" target="_blank"> ส่งทาง LINE</a>
     </div>`;
   showT('เตรียมข้อความฟีดแบคแล้ว ✓');
 }

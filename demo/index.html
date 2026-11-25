@@ -39,25 +39,25 @@
     </div>
     <nav class="nav" id="mainNav">
       <div class="nsec">ภาพรวม &amp; ลูกค้า</div>
-      <a class="on" data-tab="dashboard" data-perm="dashboard" onclick="goTab('dashboard')">📊 <span>แดชบอร์ดหลัก</span></a>
-      <a data-tab="leads" data-perm="leads" onclick="goTab('leads')">💬 <span>แชท &amp; ติดต่องาน</span><span class="badge" id="bdLeads"></span></a>
-      <a data-tab="comments" data-perm="comments" onclick="goTab('comments')">🗨️ <span>คอมเมนต์ลูกค้า</span><span class="badge" id="bdCmts"></span></a>
-      <a data-tab="feedback" data-perm="feedback" onclick="goTab('feedback')">💌 <span>ฟีดแบค &amp; ข้อเสนอแนะ</span><span class="badge" id="bdFb" style="background:var(--bad)"></span></a>
-      <div class="nsec">วิเคราะห์ 4 แพลตฟอร์ม</div>
-      <a data-tab="website" data-perm="website" onclick="goTab('website')">🌐 <span>สถิติ &amp; เว็บไซต์ (GA4/GSC)</span></a>
-      <a data-tab="posts" data-perm="posts" onclick="goTab('posts')">🎯 <span>วิเคราะห์โพสต์ &amp; ยอดทัก</span></a>
-      <a data-tab="roi" data-perm="roi" onclick="goTab('roi')">💰 <span>งบแอด &amp; ROAS / CPL</span></a>
-      <a data-tab="competitors" data-perm="strategy" onclick="goTab('competitors')">🏆 <span>ส่องคู่แข่ง &amp; Outlier</span></a>
-      <a data-tab="strategy" data-perm="strategy" onclick="goTab('strategy')">🧭 <span>การตลาด &amp; กลยุทธ์</span></a>
+      <a class="on" data-tab="dashboard" data-perm="dashboard" onclick="goTab('dashboard')"><i data-ic="chart"></i><span>แดชบอร์ดหลัก</span></a>
+      <a data-tab="leads" data-perm="leads" onclick="goTab('leads')"><i data-ic="chats"></i><span>แชท &amp; ติดต่องาน</span><span class="badge" id="bdLeads"></span></a>
+      <a data-tab="comments" data-perm="comments" onclick="goTab('comments')"><i data-ic="chat"></i><span>คอมเมนต์ลูกค้า</span><span class="badge" id="bdCmts"></span></a>
+      <a data-tab="feedback" data-perm="feedback" onclick="goTab('feedback')"><i data-ic="mail"></i><span>ฟีดแบค &amp; ข้อเสนอแนะ</span><span class="badge" id="bdFb" style="background:var(--bad)"></span></a>
+      <div class="nsec">วิเคราะห์แพลตฟอร์ม</div>
+      <a data-tab="website" data-perm="website" onclick="goTab('website')"><i data-ic="globe"></i><span>สถิติ &amp; เว็บไซต์ (GA4/GSC)</span></a>
+      <a data-tab="posts" data-perm="posts" onclick="goTab('posts')"><i data-ic="target"></i><span>วิเคราะห์โพสต์ &amp; ยอดทัก</span></a>
+      <a data-tab="roi" data-perm="roi" onclick="goTab('roi')"><i data-ic="coins"></i><span>งบแอด &amp; ROAS / CPL</span></a>
+      <a data-tab="competitors" data-perm="strategy" onclick="goTab('competitors')"><i data-ic="trophy"></i><span>ส่องคู่แข่ง &amp; Outlier</span></a>
+      <a data-tab="strategy" data-perm="strategy" onclick="goTab('strategy')"><i data-ic="compass"></i><span>การตลาด &amp; กลยุทธ์</span></a>
       <div class="nsec">เป้าหมาย &amp; แผนงาน</div>
-      <a data-tab="goals" data-perm="goals" onclick="goTab('goals')">🏆 <span>เป้าหมายบริษัท</span></a>
-      <a data-tab="calendar" data-perm="calendar" onclick="goTab('calendar')">📅 <span>ปฏิทินคอนเทนต์</span></a>
+      <a data-tab="goals" data-perm="goals" onclick="goTab('goals')"><i data-ic="activity"></i><span>เป้าหมายบริษัท</span></a>
+      <a data-tab="calendar" data-perm="calendar" onclick="goTab('calendar')"><i data-ic="calendar"></i><span>ปฏิทินคอนเทนต์</span></a>
       <div class="nsec">ระบบ &amp; NAS</div>
-      <a data-tab="settings" data-perm="settings" onclick="goTab('settings')">⚙️ <span>ตั้งค่า, API &amp; NAS</span></a>
+      <a data-tab="settings" data-perm="settings" onclick="goTab('settings')"><i data-ic="settings"></i><span>ตั้งค่า, API &amp; NAS</span></a>
     </nav>
     <div class="side-foot">
       <a class="site-link" href="../">← กลับหน้าเว็บขายขาด PulseMetrics</a>
-      <button class="btn sm ghost" style="width:100%;justify-content:center;font-size:12px" onclick="resetPulseDemo()">🔄 รีเซ็ตข้อมูลเดโม</button>
+      <button class="btn sm ghost" style="width:100%;justify-content:center;font-size:12px" onclick="resetPulseDemo()"><i data-ic="refresh"></i> รีเซ็ตข้อมูลเดโม</button>
       <div class="user-card" onclick="openLoginModal()">
         <div class="u-av" id="uAv">EX</div>
         <div class="u-inf"><b id="uName">กำลังโหลด…</b><small id="uRole">Executive</small></div>
@@ -68,7 +68,7 @@
   <div class="main-wrap">
     <header class="topbar">
       <div class="tb-left">
-        <button class="icon-btn mob-menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <button class="icon-btn mob-menu" onclick="document.getElementById('sidebar').classList.toggle('open')"><i data-ic="menu"></i></button>
         <div class="date-bar">
           <div class="seg" id="presetBar">
             <button data-p="day" onclick="setPreset('day')">รายวัน</button>
@@ -90,15 +90,15 @@
         </div>
       </div>
       <div class="tb-right">
-        <button class="btn sm ghost" onclick="openCmdPalette()" title="ค้นหาด่วนทั่วแอป (Ctrl+K)">🔍 ค้นหา <kbd style="font-size:10.5px;opacity:.7;margin-left:2px">Ctrl+K</kbd></button>
+        <button class="btn sm ghost" onclick="openCmdPalette()" title="ค้นหาด่วนทั่วแอป (Ctrl+K)"><i data-ic="search"></i> ค้นหา <kbd style="font-size:10.5px;opacity:.7;margin-left:2px">Ctrl+K</kbd></button>
         <span class="demo-pill" id="demoBadge">LIVE WEB DEMO</span>
-        <button class="btn sm ghost" onclick="openExecReport()" title="เปิดรายงานสรุปผู้บริหารพร้อมพิมพ์ PDF">📄 Executive PDF</button>
-        <button class="btn sm ghost" data-perm-btn="exports" onclick="exportExcel()" title="ดาวน์โหลดไฟล์ CSV/Excel">📥 Export</button>
-        <button class="btn sm primary" data-perm-btn="exports" id="gsBtn" onclick="syncSheets()">📊 Google Sheets</button>
-        <button class="icon-btn" onclick="openIdeaPad()" title="สมุดจดไอเดียแคมเปญด่วน (Alt+N)">📝</button>
-        <button class="icon-btn" id="focusBtn" onclick="toggleFocusMode()" title="โหมดโฟกัสซ่อนป้ายแจ้งเตือน (Alt+F)">🔕</button>
-        <button class="icon-btn" onclick="openShortcutsModal()" title="คีย์ลัดทั้งหมด (?)">?</button>
-        <button class="icon-btn" onclick="toggleTheme()" title="สลับโหมดสว่าง / มืด">🌓</button>
+        <button class="btn sm ghost" onclick="openExecReport()" title="เปิดรายงานสรุปผู้บริหารพร้อมพิมพ์ PDF"><i data-ic="file"></i> Executive PDF</button>
+        <button class="btn sm ghost" data-perm-btn="exports" onclick="exportExcel()" title="ดาวน์โหลดไฟล์ CSV/Excel"><i data-ic="download"></i> Export</button>
+        <button class="btn sm primary" data-perm-btn="exports" id="gsBtn" onclick="syncSheets()"><i data-ic="table"></i> Google Sheets</button>
+        <button class="icon-btn" onclick="openIdeaPad()" title="สมุดจดไอเดียแคมเปญด่วน (Alt+N)"><i data-ic="pen"></i></button>
+        <button class="icon-btn" id="focusBtn" onclick="toggleFocusMode()" title="โหมดโฟกัสซ่อนป้ายแจ้งเตือน (Alt+F)"><i data-ic="bell-off"></i></button>
+        <button class="icon-btn" onclick="openShortcutsModal()" title="คีย์ลัดทั้งหมด (?)"><i data-ic="help"></i></button>
+        <button class="icon-btn" onclick="toggleTheme()" title="สลับโหมดสว่าง / มืด"><i data-ic="moon"></i></button>
       </div>
     </header>
 
@@ -117,16 +117,17 @@
 <div class="modal-bg" id="cmdBg" style="z-index:80;align-items:start;padding-top:9vh" onclick="if(event.target===this)closeCmdPalette()">
   <div class="modal-card" style="width:min(640px,95vw);padding:14px 16px">
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-      <span style="font-size:16px">🔍</span>
+      <i data-ic="search"></i>
       <input class="inp" id="cmdInp" placeholder="พิมพ์ค้นหาลูกค้า, โพสต์, คีย์เวิร์ด, แคมเปญ หรือพิมพ์ชื่อเมนู…" oninput="runCmdSearch(this.value)" onkeydown="if(event.key==='Escape')closeCmdPalette()">
       <button class="btn sm ghost" onclick="closeCmdPalette()">ESC</button>
     </div>
     <div id="cmdRes" style="max-height:56vh;overflow:auto"></div>
   </div>
 </div>
-<button class="fb-fab" onclick="openFeedbackModal()" title="ส่งฟีดแบคหรือแจ้งจุดปรับปรุง">💌 ฟีดแบค</button>
+<button class="fb-fab" onclick="openFeedbackModal()" title="ส่งฟีดแบคหรือแจ้งจุดปรับปรุง"><i data-ic="mail"></i> ฟีดแบค</button>
 <div class="toast" id="toastBox"></div>
 <script src="../site-config.js"></script>
+<script src="./icons.js"></script>
 <script src="./demo-engine.js"></script>
 <script src="./app.js"></script>
 </body>

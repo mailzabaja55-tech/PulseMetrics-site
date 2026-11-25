@@ -114,10 +114,10 @@
         { id: 204, post_id: 4, platform: 'tiktok', author: 'Boss K. Marketing', content: 'ชอบมากครับ มีแอป Desktop บน Windows ด้วยไหมครับ', intent: 'buying', source_url: 'https://www.tiktok.com/', created_at: addD(-2) + ' 20:10', replied: 0, reply_text: '', converted_lead_id: null },
       ],
       quickReplies: [
-        { id: 1, label: '💰 ส่งข้อมูลราคา/ขายขาด', text: 'ขอบคุณที่สนใจครับ! PulseMetrics เป็นลิขสิทธิ์ขายขาดไม่มีค่ารายเดือน ส่งรายละเอียดรุ่น Standard / Business Pro ให้ทางแชทแล้วครับ', category: 'price' },
-        { id: 2, label: '🖥️ รองรับ NAS & Desktop', text: 'รองรับทั้งแอป Windows Desktop และติดตั้งบน NAS ทุกรุ่น (Synology/QNAP/Docker/SMB) ข้อมูลอยู่กับบริษัท 100% ครับ', category: 'nas' },
-        { id: 3, label: '📅 นัดเดโม 15 นาที', text: 'ยินดีนัดสาธิตระบบจริง (15 นาที) ให้ทีมบริหารและทีมการตลาดดูพร้อมกันครับ สะดวกวันไหนแจ้งได้เลยครับ', category: 'demo' },
-        { id: 4, label: '📊 ซิงก์ GA4 & Sheets', text: 'เชื่อมต่อ GA4, Search Console, FB, YT และส่งออก Google Sheets 6 แท็บได้อัตโนมัติครับ', category: 'feature' },
+        { id: 1, label: 'ส่งข้อมูลราคา/ขายขาด', text: 'ขอบคุณที่สนใจครับ! PulseMetrics เป็นลิขสิทธิ์ขายขาดไม่มีค่ารายเดือน ส่งรายละเอียดรุ่น Standard / Business Pro ให้ทางแชทแล้วครับ', category: 'price' },
+        { id: 2, label: 'รองรับ NAS & Desktop', text: 'รองรับทั้งแอป Windows Desktop และติดตั้งบน NAS ทุกรุ่น (Synology/QNAP/Docker/SMB) ข้อมูลอยู่กับบริษัท 100% ครับ', category: 'nas' },
+        { id: 3, label: 'นัดเดโม 15 นาที', text: 'ยินดีนัดสาธิตระบบจริง (15 นาที) ให้ทีมบริหารและทีมการตลาดดูพร้อมกันครับ สะดวกวันไหนแจ้งได้เลยครับ', category: 'demo' },
+        { id: 4, label: 'ซิงก์ GA4 & Sheets', text: 'เชื่อมต่อ GA4, Search Console, FB, YT และส่งออก Google Sheets 6 แท็บได้อัตโนมัติครับ', category: 'feature' },
       ],
       feedbacks: [
         { id: 301, source: 'site_web', sender_name: 'ตัวอย่างฟีดแบคจากเพื่อน', category: 'ux', rating: 5, page_ref: 'demo:dashboard', message: 'แดชบอร์ดสวยและอ่านง่ายมากครับ ชอบกราฟ Hover Tooltip กับปุ่มลากวาง CRM Kanban!', status: 'new', reply_note: '', created_at: addD(-1) + ' 18:00' },
@@ -221,9 +221,9 @@
         ],
       },
       morning_brief: [
-        { priority: newCnt > 0 ? 'urgent' : 'ok', icon: '💬', title: newCnt > 0 ? `ตอบลูกค้าทักใหม่ที่รออยู่ ${newCnt} ราย` : 'ตอบลูกค้าทักใหม่ครบทุกแชทแล้ว ✓', detail: 'ลองสลับเป็นโหมด Kanban ลากวาง หรือกดออกใบเสนอราคา PDF ได้ทันที', tab: 'leads', btn: 'เปิด CRM แชท →' },
-        { priority: buyCmt > 0 ? 'high' : 'ok', icon: '🔥', title: unCmt > 0 ? `ปิดคอมเมนต์สนใจซื้อ ${buyCmt} ข้อความ (ค้างตอบรวม ${unCmt})` : 'ตอบคอมเมนต์ลูกค้าครบแล้ว ✓', detail: 'ลองกดปุ่มคำตอบด่วน 1 คลิก หรือกดคีย์ J/K/R/L เพื่อตอบรัวเร็ว', tab: 'comments', btn: 'เปิดกล่องคอมเมนต์ →' },
-        { priority: 'med', icon: '📅', title: `เตรียมลงคอนเทนต์ตามแผนอีก ${DB.calendar.filter(x => x.status !== 'published').length} ชิ้น`, detail: 'ลองเปิด Packaging Lab เช็กคะแนนชื่อไทย 0–100 และ Safe-Zone 4 แพลตฟอร์ม', tab: 'calendar', btn: 'เปิดปฏิทินคอนเทนต์ →' },
+        { priority: newCnt > 0 ? 'urgent' : 'ok', icon: 'chats', title: newCnt > 0 ? `ตอบลูกค้าทักใหม่ที่รออยู่ ${newCnt} ราย` : 'ตอบลูกค้าทักใหม่ครบทุกแชทแล้ว ✓', detail: 'ลองสลับเป็นโหมด Kanban ลากวาง หรือกดออกใบเสนอราคา PDF ได้ทันที', tab: 'leads', btn: 'เปิด CRM แชท →' },
+        { priority: buyCmt > 0 ? 'high' : 'ok', icon: 'flame', title: unCmt > 0 ? `ปิดคอมเมนต์สนใจซื้อ ${buyCmt} ข้อความ (ค้างตอบรวม ${unCmt})` : 'ตอบคอมเมนต์ลูกค้าครบแล้ว ✓', detail: 'ลองกดปุ่มคำตอบด่วน 1 คลิก หรือกดคีย์ J/K/R/L เพื่อตอบรัวเร็ว', tab: 'comments', btn: 'เปิดกล่องคอมเมนต์ →' },
+        { priority: 'med', icon: 'calendar', title: `เตรียมลงคอนเทนต์ตามแผนอีก ${DB.calendar.filter(x => x.status !== 'published').length} ชิ้น`, detail: 'ลองเปิด Packaging Lab เช็กคะแนนชื่อไทย 0–100 และ Safe-Zone 4 แพลตฟอร์ม', tab: 'calendar', btn: 'เปิดปฏิทินคอนเทนต์ →' },
       ],
     };
   }
