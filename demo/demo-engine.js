@@ -255,6 +255,9 @@
       return jsonResp({ ok: true, user: curUser() });
     }
     if (path === '/api/auth/logout') return jsonResp({ ok: true });
+    if (path === '/api/auth/change-password') return jsonResp({ ok: true, message: 'โหมด Demo ออนไลน์ — เปลี่ยนรหัสผ่านจำลองเรียบร้อย ✓' });
+    if (path === '/api/workspace/clear-demo') return jsonResp({ ok: true, message: 'โหมด Demo ออนไลน์ — ในเวอร์ชันติดตั้งจริงจะล้างข้อมูลตัวอย่างและสลับเป็น Live Mode ทันที ✓' });
+    if (path === '/api/system/restore') return jsonResp({ ok: true, message: 'โหมด Demo ออนไลน์ — จำลองการกู้คืนฐานข้อมูลเรียบร้อย ✓' });
     if (path === '/api/auth/switch-workspace') {
       DB.workspace_id = Number(body.workspace_id) || 1; saveDB();
       return jsonResp({ ok: true, workspace_id: DB.workspace_id });
@@ -536,8 +539,9 @@
     if (!a) return;
     const h = a.getAttribute('href') || '';
     if (h.startsWith('/quote/')) { ev.preventDefault(); renderDemoQuote(h.split('/')[2]); }
-    else if (h === '/api/leads/export.csv') { ev.preventDefault(); downloadCsvLeads(); }
-    else if (h.startsWith('/go/')) { ev.preventDefault(); if (window.toast) window.toast('ลิงก์ติดตาม ' + h + ' (เวอร์ชันติดตั้งจริงจะ Redirect พร้อมเก็บ UTM เข้าโพสต์นี้อัตโนมัติ)'); }
+    else if (h.startsWith('/report')) { ev.preventDefault(); renderDemoReport(); }
+    else if (h.startsWith('/api/export/excel') || h === '/api/leads/export.csv') { ev.preventDefault(); downloadCsvLeads(); }
+    else if (h.startsWith('/go/')) { ev.preventDefault(); if (window.PM && window.PM.toast) window.PM.toast('ลิงก์ติดตาม ' + h + ' (เวอร์ชันติดตั้งจริงจะ Redirect พร้อมเก็บ UTM เข้าโพสต์นี้อัตโนมัติ)', 'ok'); }
     else if (h === '/site') { ev.preventDefault(); location.href = '../'; }
   });
 })();
