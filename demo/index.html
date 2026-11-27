@@ -30,7 +30,7 @@ body{
 }
 button,input,select,textarea{font-family:var(--font)}
 button{cursor:pointer;border:0;border-radius:10px;padding:8px 14px;font-size:13.5px;font-weight:600;transition:.14s}
-button:not(.ghost):not(.icon-btn):not(.th-opt):not(.th-seg):not(.th-dot):not(.cmd-it):not(.sb-it):not(.sb-qa):not(.sb-pomo):not(.wstab):not(.plat):not(.cc):not(.tab-btn){
+button:not(.ghost):not(.icon-btn):not(.th-opt):not(.th-seg):not(.th-dot):not(.th-tab):not(.cmd-it):not(.sb-it):not(.sb-qa):not(.sb-pomo):not(.wstab):not(.plat):not(.cc):not(.tab-btn){
   background:var(--ac);color:var(--on-ac);box-shadow:0 1px 3px rgba(232,69,139,.25)
 }
 button:hover{filter:brightness(1.04)}
@@ -49,7 +49,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ac-bd);border-co
 svg.ic{width:18px;height:18px;flex:none;vertical-align:-.18em}
 
 /* Shell */
-.app{display:grid;grid-template-columns:258px minmax(0,1fr);min-height:100vh;transition:grid-template-columns .18s}
+.app{display:grid;grid-template-columns:258px minmax(0,1fr);min-height:100vh;transition:grid-template-columns .18s;position:relative;z-index:1}
 html.nav-mini .app{grid-template-columns:68px minmax(0,1fr)}
 
 /* Sidebar */
@@ -187,17 +187,22 @@ html[data-density="spacious"] main .card{padding:21px 23px}
 .msgs{display:flex;flex-direction:column;gap:8px;max-height:330px;overflow:auto;padding:4px 2px}
 .msg{max-width:85%;padding:8px 12px;border-radius:14px;background:var(--surf2);color:var(--tx);font-size:13.5px;width:fit-content}
 .msg.me{align-self:flex-end;background:var(--ac-soft);border:1px solid var(--ac-bd)}
-.pop-panel{position:fixed;top:56px;right:16px;z-index:85;width:min(380px,93vw);max-height:76vh;overflow-y:auto;background:var(--surf);border:1px solid var(--bd);border-radius:16px;padding:14px 16px;box-shadow:0 18px 48px rgba(15,17,26,.22);display:none}
+.pop-panel{position:fixed;top:56px;right:16px;z-index:85;width:min(380px,93vw);max-height:76vh;overflow-y:auto;background:var(--surf);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--bd);border-radius:16px;padding:14px 16px;box-shadow:0 18px 48px rgba(15,17,26,.22);display:none}
 .pop-panel.open{display:block}
-.th-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:8px 0 12px}
-.th-opt{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:11px;border:1px solid var(--bd);background:var(--surf3);color:var(--tx);text-align:left;font-size:12px;font-weight:600}
+.th-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:3px;border-radius:11px;background:var(--surf2);border:1px solid var(--bd);margin:8px 0 10px}
+.th-tab{padding:6px 4px;border-radius:8px;border:0;background:transparent;color:var(--dim);font:700 11.5px/1.2 inherit;cursor:pointer;text-align:center;box-shadow:none;transition:.14s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.th-tab:hover{color:var(--tx);filter:none}
+.th-tab.on{background:var(--surf);color:var(--ac-ink);box-shadow:0 1px 5px rgba(0,0,0,.12)}
+.th-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;margin:8px 0 12px}
+.th-opt{display:flex;align-items:center;gap:7px;width:100%;min-width:0;padding:7px 8px;border-radius:11px;border:1px solid var(--bd);background:var(--surf3);color:var(--tx);text-align:left;font-size:12px;font-weight:600}
 .th-opt.on{border-color:var(--ac);background:var(--ac-soft)}
 .th-opt .thnm{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.2}
 .th-opt .thnm small{display:block;font-size:10px;font-weight:500;color:var(--dim);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .thsw{width:19px;height:19px;border-radius:50%;flex:none;border:1.5px solid rgba(128,128,128,.3)}
 .th-sec{font-size:11.5px;font-weight:700;color:var(--dim);margin:10px 0 5px}
 .th-segs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}
-.th-seg{flex:1;min-width:60px;padding:6px 8px;border-radius:9px;border:1px solid var(--bd);background:var(--surf3);color:var(--tx2);font-size:12px;font-weight:600;text-align:center}
+.th-segs.f2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
+.th-seg{flex:1;min-width:0;padding:6px 8px;border-radius:9px;border:1px solid var(--bd);background:var(--surf3);color:var(--tx2);font-size:12px;font-weight:600;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .th-seg.on{background:var(--ac-soft);border-color:var(--ac);color:var(--ac-ink)}
 .th-dot{width:22px;height:22px;padding:0;border-radius:50%;border:2px solid transparent}
 .th-dot.on{border-color:var(--tx);transform:scale(1.12)}
@@ -369,6 +374,7 @@ html[data-pill="0"] #pmNavPill{display:none!important}
 </style>
 </head>
 <body>
+<canvas id="mailThemeFx" aria-hidden="true"></canvas>
 <div class="app">
   <nav id="nav" aria-label="เมนูหลัก">
     <div class="brand">
@@ -397,7 +403,7 @@ html[data-pill="0"] #pmNavPill{display:none!important}
   <button type="button" class="icon-btn" id="copbtn" title="ผู้ช่วยวิเคราะห์ข้อมูลในเครื่อง (ฟรี 0 โทเคน)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></button>
   <button type="button" class="icon-btn" id="cmdbtn" title="ค้นหาด่วน (Ctrl+K)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
   <button type="button" class="icon-btn" id="ideabtn" title="สมุดจดไอเดีย (Alt+N)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
-  <button type="button" class="icon-btn" id="thbtn" title="เปลี่ยนธีม 14 แบบ &amp; ฟอนต์ (Alt+T)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></svg></button>
+  <button type="button" class="icon-btn" id="thbtn" title="เปลี่ยนธีม 24 แบบ &amp; ฟอนต์ (Alt+T)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></svg></button>
   <button type="button" class="icon-btn" id="focbtn" title="โหมดโฟกัส"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="m2 2 20 20"/></svg></button>
   <button type="button" class="icon-btn" id="bellbtn" title="การแจ้งเตือน"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span id="bell-n">0</span></button>
 </div>
@@ -433,9 +439,10 @@ html[data-pill="0"] #pmNavPill{display:none!important}
 <div id="mailToasts"></div>
 <div id="chartTip"></div>
 <script src="../site-config.js"></script>
-<script src="./demo-engine.js?v=341"></script>
-<script src="./suite_core.js?v=341"></script>
-<script src="./suite_pages.js?v=341"></script>
-<script src="./suite_ops.js?v=341"></script>
+<script src="./demo-engine.js?v=342"></script>
+<script src="./theme_fx.js?v=342"></script>
+<script src="./suite_core.js?v=342"></script>
+<script src="./suite_pages.js?v=342"></script>
+<script src="./suite_ops.js?v=342"></script>
 </body>
 </html>

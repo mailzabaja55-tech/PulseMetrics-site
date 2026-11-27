@@ -1,4 +1,4 @@
-/* PulseMetrics Business Suite — Live Core Engine (14 Mail Themes + Motion + Real API Store + Navigation) */
+/* PulseMetrics Business Suite — Live Core Engine (24 Mail Themes + Living FX + Motion + Real API Store) */
 (function(){
 'use strict';
 
@@ -49,25 +49,38 @@ const ICONS = {
   logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>',
 };
 
-const THEMES = [
-  {id:'pink',name:'ชมพูสว่าง',sub:'ค่าเริ่มต้น',dark:false,sw1:'#f6f7fb',sw2:'#FF6FAE'},
-  {id:'dark',name:'โหมดมืด',sub:'Midnight Pink',dark:true,sw1:'#181b28',sw2:'#ff5ca0'},
-  {id:'cyber',name:'ดาร์กไซเบอร์',sub:'Dark Cyan',dark:true,sw1:'#131a2a',sw2:'#22d3ee'},
-  {id:'ocean',name:'ฟ้าโอเชียน',sub:'Ocean Blue',dark:false,sw1:'#f2f7fd',sw2:'#2563eb'},
-  {id:'purple',name:'ม่วงลาเวนเดอร์',sub:'Lavender',dark:false,sw1:'#f6f4fd',sw2:'#7c3aed'},
-  {id:'mint',name:'เขียวมินต์',sub:'Mint Fresh',dark:false,sw1:'#f2faf7',sw2:'#0d9488'},
-  {id:'warm',name:'ครีมอุ่น',sub:'Warm Cream',dark:false,sw1:'#f6f0e4',sw2:'#c2552d'},
-  {id:'clay',name:'กลาส & เคลย์',sub:'Glass Clay',dark:false,sw1:'#eef2ff',sw2:'#4f7cff'},
-  {id:'verdelo',name:'มรกตดาร์ก',sub:'Verdelo Mint',dark:true,sw1:'#0d1311',sw2:'#34d399'},
-  {id:'obsidian',name:'โอบซิเดียนมะนาว',sub:'Obsidian Lime',dark:true,sw1:'#11140f',sw2:'#a3e635'},
-  {id:'stone',name:'สโตน & ส้มอิฐ',sub:'Stone Bento',dark:false,sw1:'#f7f5f2',sw2:'#d9521e'},
-  {id:'mono',name:'โมโนโครม',sub:'Corbel Mono',dark:false,sw1:'#f5f6f8',sw2:'#111111'},
-  {id:'copper',name:'คอปเปอร์กลาส',sub:'Copper Glass',dark:false,sw1:'#f4e6dc',sw2:'#e05a3a'},
-  {id:'sage',name:'เซจพาสเทล',sub:'Lullo Pastel',dark:false,sw1:'#d6e2d5',sw2:'#d96248'},
+const FX = window.PM_THEME_FX || null;
+if (FX && FX.injectThemeCss) FX.injectThemeCss();
+
+const THEMES = (FX && FX.THEMES) || [
+  {id:'pink',name:'ชมพูสว่าง',sub:'ค่าเริ่มต้น',dark:false,anim:false,sw1:'#f6f7fb',sw2:'#FF6FAE'},
+  {id:'dark',name:'โหมดมืด',sub:'Midnight Pink',dark:true,anim:false,sw1:'#181b28',sw2:'#ff5ca0'},
+  {id:'cyber',name:'ดาร์กไซเบอร์',sub:'Dark Cyan',dark:true,anim:false,sw1:'#131a2a',sw2:'#22d3ee'},
+  {id:'ocean',name:'ฟ้าโอเชียน',sub:'Ocean Blue',dark:false,anim:false,sw1:'#f2f7fd',sw2:'#2563eb'},
+  {id:'purple',name:'ม่วงลาเวนเดอร์',sub:'Lavender',dark:false,anim:false,sw1:'#f6f4fd',sw2:'#7c3aed'},
+  {id:'mint',name:'เขียวมินต์',sub:'Mint Fresh',dark:false,anim:false,sw1:'#f2faf7',sw2:'#0d9488'},
+  {id:'warm',name:'ครีมอุ่น',sub:'Warm Cream',dark:false,anim:false,sw1:'#f6f0e4',sw2:'#c2552d'},
+  {id:'clay',name:'กลาส & เคลย์',sub:'Glass Clay',dark:false,anim:false,sw1:'#eef2ff',sw2:'#4f7cff'},
+  {id:'verdelo',name:'มรกตดาร์ก',sub:'Verdelo Mint',dark:true,anim:false,sw1:'#0d1311',sw2:'#34d399'},
+  {id:'obsidian',name:'โอบซิเดียนมะนาว',sub:'Obsidian Lime',dark:true,anim:false,sw1:'#11140f',sw2:'#a3e635'},
+  {id:'stone',name:'สโตน & ส้มอิฐ',sub:'Stone Bento',dark:false,anim:false,sw1:'#f7f5f2',sw2:'#d9521e'},
+  {id:'mono',name:'โมโนโครม',sub:'Corbel Mono',dark:false,anim:false,sw1:'#f5f6f8',sw2:'#111111'},
+  {id:'copper',name:'คอปเปอร์กลาส',sub:'Copper Glass',dark:false,anim:false,sw1:'#f4e6dc',sw2:'#e05a3a'},
+  {id:'sage',name:'เซจพาสเทล',sub:'Lullo Pastel',dark:false,anim:false,sw1:'#d6e2d5',sw2:'#d96248'},
+  {id:'aurora',name:'ออโรร่า',sub:'Aurora Flow',dark:true,anim:true,sw1:'#0b2d30',sw2:'#2dd4bf'},
+  {id:'cosmic',name:'อวกาศดาวลอย',sub:'Cosmic Drift',dark:true,anim:true,sw1:'#140d2b',sw2:'#a855f7'},
+  {id:'neongrid',name:'ไซเบอร์กริด',sub:'Neon Grid',dark:true,anim:true,sw1:'#140b24',sw2:'#f43f8e'},
+  {id:'liquid',name:'ลิควิดพาสเทล',sub:'Liquid Mesh',dark:false,anim:true,sw1:'#fce7f3',sw2:'#ec4899'},
+  {id:'sakura',name:'ซากุระร่วง',sub:'Sakura Breeze',dark:false,anim:true,sw1:'#fff0f6',sw2:'#f472b6'},
+  {id:'rain',name:'ฝนตก Lo-Fi',sub:'Lo-Fi Rain',dark:true,anim:true,sw1:'#0b1426',sw2:'#60a5fa'},
+  {id:'firefly',name:'หิ่งห้อย',sub:'Firefly Glow',dark:true,anim:true,sw1:'#07140d',sw2:'#facc15'},
+  {id:'matrix',name:'เมทริกซ์โค้ด',sub:'Matrix Rain',dark:true,anim:true,sw1:'#040d06',sw2:'#22c55e'},
+  {id:'ember',name:'สะเก็ดไฟลาวา',sub:'Ember Forge',dark:true,anim:true,sw1:'#180906',sw2:'#f97316'},
+  {id:'deepsea',name:'ใต้ทะเลลึก',sub:'Deep Ocean',dark:true,anim:true,sw1:'#051926',sw2:'#38bdf8'},
 ];
-const FONTS = [{id:'noto',name:'Noto Thai'},{id:'plex',name:'IBM Plex'},{id:'prompt',name:'Prompt'},{id:'sys',name:'ระบบเดิม'}];
-const SIZES = [{id:'sm',name:'กะทัดรัด'},{id:'md',name:'ปกติ'},{id:'lg',name:'ใหญ่'}];
-const DENSITIES = [{id:'compact',name:'กะทัดรัด'},{id:'normal',name:'ปกติ'},{id:'spacious',name:'โปร่งสบาย'}];
+const FONTS = (FX && FX.FONTS) || [{id:'noto',name:'Noto Thai'},{id:'plex',name:'IBM Plex'},{id:'prompt',name:'Prompt'},{id:'sys',name:'ระบบเดิม'}];
+const SIZES = (FX && FX.SIZES) || [{id:'sm',name:'กะทัดรัด'},{id:'md',name:'ปกติ'},{id:'lg',name:'ใหญ่'}];
+const DENSITIES = (FX && FX.DENSITIES) || [{id:'compact',name:'กะทัดรัด'},{id:'normal',name:'ปกติ'},{id:'spacious',name:'โปร่งสบาย'}];
 
 const $ = id => document.getElementById(id);
 const E = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -144,7 +157,7 @@ const PINNED = ['home', 'website', 'post', 'stats', 'roi', 'marketing', 'goal', 
 const PREFS_KEY = 'pulsemetrics_suite_prefs';
 let prefs = {
   theme:'pink', font:'noto', size:'md', density:'normal', accent:'',
-  mini:false, focus:false, dock_mini:true, nav_pill:true, theme_ripple:true, card_land:true,
+  mini:false, focus:false, dock_mini:true, nav_pill:true, theme_ripple:true, card_land:true, fx_mouse:true,
   brandTitle:'PulseMetrics',
   rangePreset:'month', rangeCompare:'auto', rangeStart:'', rangeEnd:'',
   postSub:'cal', mkSub:'advisor', setSub:'connectors', webSub:'overview', webMetric:'visitors',
@@ -160,6 +173,7 @@ if (!THEMES.some(t => t.id === prefs.theme)) prefs.theme = 'pink';
 prefs.nav_pill = prefs.nav_pill !== false;
 prefs.theme_ripple = prefs.theme_ripple !== false;
 prefs.card_land = prefs.card_land !== false;
+prefs.fx_mouse = prefs.fx_mouse !== false;
 function savePrefs(){ try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch(e){} }
 
 // ---------- Live Application State ----------
@@ -368,6 +382,8 @@ function applyPrefs(){
   const curObj = THEMES.find(t => t.id === prefs.theme) || THEMES[0];
   h.setAttribute('data-theme', curObj.id);
   h.setAttribute('data-dark', curObj.dark ? '1' : '0');
+  h.setAttribute('data-anim', curObj.anim ? '1' : '0');
+  h.setAttribute('data-fxmouse', prefs.fx_mouse !== false ? '1' : '0');
   h.setAttribute('data-font', prefs.font || 'noto');
   h.setAttribute('data-size', prefs.size || 'md');
   h.setAttribute('data-density', prefs.density || 'normal');
@@ -378,6 +394,7 @@ function applyPrefs(){
   h.classList.toggle('nav-mini', !!prefs.mini);
   h.classList.toggle('focus-on', !!prefs.focus);
   applyCustomAc(prefs.accent, !!curObj.dark);
+  if (FX && typeof FX.sync === 'function') FX.sync(curObj.id, !!curObj.anim, prefs.fx_mouse !== false);
   const dt = $('docktog');
   if (dt) dt.title = prefs.dock_mini !== false ? 'ขยายแถบเครื่องมือมุมขวาบน' : 'ย่อแถบเครื่องมือมุมขวาบน';
   const fb = $('focbtn'); if (fb) fb.classList.toggle('on', !!prefs.focus);
@@ -672,37 +689,64 @@ function renderBell(map){
   $('bellpanel').querySelectorAll('[data-nav]').forEach(r => r.onclick = () => nav(r.dataset.nav));
 }
 
-// ---------- Panels: Theme 14, Live Ideas (/api/ideas), Live Search (Ctrl+K), Advisor Drawer ----------
+// ---------- Panels: Theme 24 (14 Static + 10 Living Animated), Live Ideas (/api/ideas), Live Search (Ctrl+K), Advisor Drawer ----------
+let thTab = 'static';
+try {
+  const sv = localStorage.getItem('pulsemetrics_th_tab');
+  if (sv && ['static','anim','sys'].includes(sv)) thTab = sv;
+  else if ((THEMES.find(t => t.id === prefs.theme) || {}).anim) thTab = 'anim';
+} catch(e){}
+
 function renderThemePanel(){
   const curObj = THEMES.find(t => t.id === prefs.theme) || THEMES[0];
+  const statTh = THEMES.filter(t => !t.anim), animTh = THEMES.filter(t => t.anim);
   const dots = ['','#e8458b','#c2552d','#f59e0b','#2563eb','#7c3aed','#10b981'];
+  const thBtn = t => `<button type="button" class="th-opt ${prefs.theme===t.id?'on':''}" data-th="${t.id}"><span class="thsw ${t.anim?'anim':''}" style="background:linear-gradient(135deg,${t.sw1} 50%,${t.sw2} 50%)"></span><span class="thnm">${E(t.name)}<small>${E(t.sub)}</small></span></button>`;
+  let body = '';
+  if (thTab === 'static') {
+    body = `<div class="th-grid">${statTh.map(thBtn).join('')}</div>`
+      + `<div class="th-sec">สีธีมกำหนดเอง (Custom Accent)</div>`
+      + `<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px">`
+      + dots.map(c => `<button type="button" class="th-dot ${prefs.accent===c?'on':''}" data-ac="${c}" title="${c||'ค่าเริ่มต้นธีม'}" style="background:${c||'conic-gradient(#ff6fae,#3b82f6,#10b981,#ff6fae)'}"></button>`).join('')
+      + `<input type="color" id="th-col" value="${E(prefs.accent || curObj.sw2)}" title="เลือกสีอิสระ" style="width:28px;height:24px;padding:1px;border-radius:6px;cursor:pointer"></div>`;
+  } else if (thTab === 'anim') {
+    body = `<div class="th-grid">${animTh.map(thBtn).join('')}</div>`
+      + `<div class="th-sec">เอฟเฟกต์แอนิเมชัน (ชุดเดียวกับแอป Mail)</div>`
+      + `<div class="th-segs f2">`
+      + `<button type="button" class="th-seg ${prefs.fx_mouse!==false?'on':''}" id="th-mouse" title="ขยับเมาส์ผ่านฉากหลังแล้วอนุภาค/กลีบดอกไม้/หิ่งห้อยโต้ตอบตามเมาส์">เมาส์โต้ตอบ: ${prefs.fx_mouse!==false?'เปิด':'ปิด'}</button>`
+      + `<button type="button" class="th-seg ${prefs.nav_pill?'on':''}" id="th-pill">เมนูยืด-หด: ${prefs.nav_pill?'เปิด':'ปิด'}</button>`
+      + `<button type="button" class="th-seg ${prefs.theme_ripple?'on':''}" id="th-rip">ธีมวงกลม: ${prefs.theme_ripple?'เปิด':'ปิด'}</button>`
+      + `<button type="button" class="th-seg ${prefs.card_land?'on':''}" id="th-land">การ์ดลอยเข้า: ${prefs.card_land?'เปิด':'ปิด'}</button>`
+      + `</div>`;
+  } else {
+    body = `<div class="th-sec" style="margin-top:2px">ฟอนต์ภาษาไทย</div>`
+      + `<div class="th-segs f2">${FONTS.map(f => `<button type="button" class="th-seg ${prefs.font===f.id?'on':''}" data-fn="${f.id}">${E(f.name)}</button>`).join('')}</div>`
+      + `<div class="th-sec">ขนาดตัวอักษร</div>`
+      + `<div class="th-segs">${SIZES.map(s => `<button type="button" class="th-seg ${prefs.size===s.id?'on':''}" data-sz="${s.id}">${E(s.name)}</button>`).join('')}</div>`
+      + `<div class="th-sec">ความหนาแน่นหน้าจอ (UI Density)</div>`
+      + `<div class="th-segs">${DENSITIES.map(d => `<button type="button" class="th-seg ${(prefs.density||'normal')===d.id?'on':''}" data-dn="${d.id}">${E(d.name)}</button>`).join('')}</div>`;
+  }
   $('thpanel').innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-      <div><b>ตกแต่งหน้าตาแอป (14 ธีม)</b><div class="dim" style="font-size:11px">ชุดธีมเดียวกับแอป Mail · จำค่าอัตโนมัติ</div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+      <div><b>ตกแต่งหน้าตาแอป (24 ธีม)</b><div class="dim" style="font-size:11px">${E(curObj.name)} · ชุดเดียวกับแอป Mail</div></div>
       <button type="button" class="ghost" style="padding:3px 9px;font-size:11.5px" id="th-rst">รีเซ็ต</button>
     </div>
-    <div class="th-grid">${THEMES.map(t => `<button type="button" class="th-opt ${prefs.theme===t.id?'on':''}" data-th="${t.id}"><span class="thsw" style="background:linear-gradient(135deg,${t.sw1} 50%,${t.sw2} 50%)"></span><span class="thnm">${E(t.name)}<small>${E(t.sub)}</small></span></button>`).join('')}</div>
-    <div class="th-sec">สีธีมกำหนดเอง (Custom Accent)</div>
-    <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px">
-      ${dots.map(c => `<button type="button" class="th-dot ${prefs.accent===c?'on':''}" data-ac="${c}" title="${c||'ค่าเริ่มต้นธีม'}" style="background:${c||'conic-gradient(#ff6fae,#3b82f6,#10b981,#ff6fae)'}"></button>`).join('')}
-      <input type="color" id="th-col" value="${E(prefs.accent || curObj.sw2)}" title="เลือกสีอิสระ" style="width:28px;height:24px;padding:1px;border-radius:6px;cursor:pointer">
+    <div class="th-tabs">
+      <button type="button" class="th-tab ${thTab==='static'?'on':''}" data-tht="static">ธีมสี (${statTh.length})</button>
+      <button type="button" class="th-tab ${thTab==='anim'?'on':''}" data-tht="anim">อนิเมชั่น (${animTh.length})</button>
+      <button type="button" class="th-tab ${thTab==='sys'?'on':''}" data-tht="sys">ฟอนต์ &amp; ระบบ</button>
     </div>
-    <div class="th-sec">ฟอนต์ภาษาไทย</div>
-    <div class="th-segs">${FONTS.map(f => `<button type="button" class="th-seg ${prefs.font===f.id?'on':''}" data-fn="${f.id}">${E(f.name)}</button>`).join('')}</div>
-    <div class="th-sec">ขนาดตัวอักษร</div>
-    <div class="th-segs">${SIZES.map(s => `<button type="button" class="th-seg ${prefs.size===s.id?'on':''}" data-sz="${s.id}">${E(s.name)}</button>`).join('')}</div>
-    <div class="th-sec">ความหนาแน่นหน้าจอ (UI Density)</div>
-    <div class="th-segs">${DENSITIES.map(d => `<button type="button" class="th-seg ${(prefs.density||'normal')===d.id?'on':''}" data-dn="${d.id}">${E(d.name)}</button>`).join('')}</div>
-    <div class="th-sec">เอฟเฟกต์แอนิเมชัน</div>
-    <div class="th-segs">
-      <button type="button" class="th-seg ${prefs.nav_pill?'on':''}" id="th-pill">เมนูยืด-หด: ${prefs.nav_pill?'เปิด':'ปิด'}</button>
-      <button type="button" class="th-seg ${prefs.theme_ripple?'on':''}" id="th-rip">ธีมวงกลม: ${prefs.theme_ripple?'เปิด':'ปิด'}</button>
-      <button type="button" class="th-seg ${prefs.card_land?'on':''}" id="th-land">การ์ดลอยเข้า: ${prefs.card_land?'เปิด':'ปิด'}</button>
-    </div>
+    ${body}
     <div class="th-f">
       <button type="button" class="th-q" id="th-flip">${curObj.dark?'สลับโหมดสว่าง':'สลับโหมดมืด'}</button>
       <button type="button" class="th-q" id="th-mini">${prefs.mini?'ขยายแถบซ้าย':'ย่อแถบซ้าย'}</button>
     </div>`;
+  $('thpanel').querySelectorAll('[data-tht]').forEach(b => b.onclick = e => {
+    e.stopPropagation();
+    thTab = b.dataset.tht;
+    try { localStorage.setItem('pulsemetrics_th_tab', thTab); } catch(err){}
+    renderThemePanel();
+  });
   $('thpanel').querySelectorAll('[data-th]').forEach(b => b.onclick = e => {
     e.stopPropagation();
     withThemeRipple(e, () => { prefs.theme = b.dataset.th; prefs.accent = ''; applyPrefs(); renderThemePanel(); });
@@ -715,6 +759,7 @@ function renderThemePanel(){
     $('th-col').onclick = e => e.stopPropagation();
     $('th-col').oninput = e => { prefs.accent = e.target.value.toLowerCase(); applyPrefs(); };
   }
+  if ($('th-mouse')) $('th-mouse').onclick = e => { e.stopPropagation(); prefs.fx_mouse = !(prefs.fx_mouse !== false); applyPrefs(); renderThemePanel(); toast(prefs.fx_mouse ? 'เปิดเอฟเฟกต์เมาส์โต้ตอบแล้ว' : 'ปิดเอฟเฟกต์เมาส์โต้ตอบแล้ว', 'ok'); };
   if ($('th-pill')) $('th-pill').onclick = e => { e.stopPropagation(); prefs.nav_pill = !prefs.nav_pill; applyPrefs(); renderThemePanel(); };
   if ($('th-rip')) $('th-rip').onclick = e => { e.stopPropagation(); prefs.theme_ripple = !prefs.theme_ripple; applyPrefs(); renderThemePanel(); };
   if ($('th-land')) $('th-land').onclick = e => { e.stopPropagation(); prefs.card_land = !prefs.card_land; applyPrefs(); renderThemePanel(); };
@@ -725,7 +770,7 @@ function renderThemePanel(){
   if ($('th-mini')) $('th-mini').onclick = e => { e.stopPropagation(); prefs.mini = !prefs.mini; applyPrefs(); renderThemePanel(); };
   if ($('th-rst')) $('th-rst').onclick = e => {
     e.stopPropagation();
-    withThemeRipple(e, () => { prefs.theme='pink'; prefs.font='noto'; prefs.size='md'; prefs.density='normal'; prefs.accent=''; prefs.nav_pill=true; prefs.theme_ripple=true; prefs.card_land=true; applyPrefs(); renderThemePanel(); });
+    withThemeRipple(e, () => { prefs.theme='pink'; prefs.font='noto'; prefs.size='md'; prefs.density='normal'; prefs.accent=''; prefs.nav_pill=true; prefs.theme_ripple=true; prefs.card_land=true; prefs.fx_mouse=true; applyPrefs(); renderThemePanel(); });
   };
 }
 
@@ -803,7 +848,8 @@ function renderCmd(q, remote){
     ...Object.values(map).map(it => ({kind:it.g, label:it.title, q:it.k, fn:()=>nav(it.k)})),
     {kind:'คำสั่ง', label:'ย่อ/ขยาย แถบเครื่องมือมุมขวาบน', q:'dock', fn:()=>{ prefs.dock_mini=!(prefs.dock_mini!==false); applyPrefs(); }},
     {kind:'คำสั่ง', label:'เปิด/ปิด แอนิเมชันเมนูยืด-หด (Elastic Pill)', q:'pill slide motion', fn:()=>{ prefs.nav_pill=!prefs.nav_pill; applyPrefs(); }},
-    ...THEMES.map(t => ({kind:'ธีม', label:'ธีม: ' + t.name + ' (' + t.sub + ')', q:'theme ธีม ' + t.id + ' ' + t.sub, fn:()=>{ prefs.theme=t.id; prefs.accent=''; applyPrefs(); toast('เปลี่ยนเป็นธีม ' + t.name + ' แล้ว', 'ok'); }})),
+    {kind:'คำสั่ง', label:'เปิด/ปิด เอฟเฟกต์เมาส์โต้ตอบ (Mouse FX)', q:'mouse fx animation อนิเมชั่น', fn:()=>{ prefs.fx_mouse=!(prefs.fx_mouse!==false); applyPrefs(); toast(prefs.fx_mouse?'เปิดเอฟเฟกต์เมาส์โต้ตอบแล้ว':'ปิดเอฟเฟกต์เมาส์โต้ตอบแล้ว','ok'); }},
+    ...THEMES.map(t => ({kind:t.anim?'ธีมอนิเมชั่น':'ธีม', label:'ธีม: ' + t.name + ' (' + t.sub + ')', q:'theme ธีม ' + (t.anim?'anim อนิเมชั่น ':'') + t.id + ' ' + t.sub, fn:()=>{ prefs.theme=t.id; prefs.accent=''; applyPrefs(); toast('เปลี่ยนเป็นธีม ' + t.name + ' แล้ว', 'ok'); }})),
   ].filter(x => !low || (x.label + ' ' + x.kind + ' ' + (x.q||'')).toLowerCase().includes(low));
 
   const extra = [];

@@ -504,7 +504,7 @@ R.settings = function(){
   const badgeCfg = k => (cs[k] && cs[k].configured) ? `<span class="chip ok">ตั้งค่าแล้ว (${E(cs[k].preview||'')})</span>` : '<span class="chip warn">ยังไม่ใส่คีย์</span>';
 
   return pageHead('ตั้งค่าระบบ & เชื่อมต่อ API จริง', 'จัดการคีย์ API (GA4/GSC/FB/YT/Sheets/LINE), ลิขสิทธิ์ขายขาด, Login Gate, สิทธิ์ทีมงาน RBAC และสำรองข้อมูล NAS',
-    `<button type="button" class="ghost" id="set-th">${svg('palette')} ธีม 14 แบบ (Alt+T)</button>`) + `
+    `<button type="button" class="ghost" id="set-th">${svg('palette')} ธีม 24 แบบ (Alt+T)</button>`) + `
   <div class="tabs">
     <button type="button" class="tab-btn ${prefs.setSub==='connectors'?'on':''}" data-ssub="connectors">${svg('link')} เชื่อมต่อ API &amp; Live Mode</button>
     <button type="button" class="tab-btn ${prefs.setSub==='brand'?'on':''}" data-ssub="brand">${svg('shield')} แบรนด์, ลิขสิทธิ์ &amp; ความปลอดภัย</button>
